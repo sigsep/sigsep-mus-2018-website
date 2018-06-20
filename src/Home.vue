@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import bulma from 'bulma/css/bulma.css';
 
 export default {
     methods: {

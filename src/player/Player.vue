@@ -51,21 +51,24 @@ export default {
       headers: Array,
       loaderColor: 'orange',
       loaderHeight: '26px',
+      playbackPosition: 0,
+      lastplaybackPosition: 0
     }
   },
-  beforeMount: function() {
+  beforeMount: function () {
     this.headers = headers;
   },
-  mounted: function() {
+  mounted: function () {
     Mousetrap.bind('space', this.playpause )
     this.player = new player();
     this.player.playlist.getEventEmitter().on('audiosourcesloaded', this.audioLoaded);
+    this.player.playlist.getEventEmitter().on('timeupdate', this.updateTime);
     this.update_tracks();
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     Mousetrap.unbind('space');
     for (var i = 0; i < this.player.playlist.tracks.length; ++i) {
-      (function(i) {
+      (function (i) {
       Mousetrap.unbind(String(i + 1));
       })(i);
     }
@@ -73,21 +76,26 @@ export default {
     delete this.player;
   },
   methods: {
-    update_tracks: function(oldval, newval) {
+    update_tracks: function (oldval, newval) {
       if(this.isLoading != true) {
+        this.saveState()
         this.stop()
         this.isLoading = true
         this.player.loadTargets(this.urls)
         for (var i = 0; i < this.urls.length; ++i) {
-            (function(i, e) {
-                Mousetrap.bind(String(i + 1), function() {
+            (function (i, e) {
+                Mousetrap.bind(String(i + 1), function () {
                   e.player.playlist.getEventEmitter().emit('solo', e.player.playlist.tracks[i])
                 });
             })(i, this)
           }
         }
     },
-    playpause: function(event) {
+    saveState: function (event) {
+      this.lastplaybackPosition = this.playbackPosition
+      console.log(this.player.playlist.mutedTracks)
+    },
+    playpause: function (event) {
       if (this.isPlaying) {
         this.player.playlist.getEventEmitter().emit('pause')
       }
@@ -99,7 +107,7 @@ export default {
       event.stopPropagation();
       return false;
     },
-    stop: function() {
+    stop: function () {
       this.player.playlist.getEventEmitter().emit('stop')
       this.isPlaying = false
     },
@@ -109,6 +117,10 @@ export default {
     audioLoaded: function () {
       this.isLoading = false
     },
+    updateTime: function (playbackPosition) {
+      this.playbackPosition = playbackPosition
+    },
+
   },
   watch: {
     urls: {
@@ -192,7 +204,7 @@ export default {
   .playlist .playlist-time-scale {
     height: 30px; }
   .playlist .playlist-tracks {
-    background: transparent; }
+    background: white; }
   .playlist .channel {
     background: grey; }
   .playlist .channel-progress {
@@ -217,7 +229,7 @@ export default {
   .playlist .channel-wrapper.silent .channel {
     opacity: 0.3; }
   .playlist .controls {
-    background: transparent;
+    background: white;
     text-align: center; }
     .playlist .controls header {
       overflow: hidden;

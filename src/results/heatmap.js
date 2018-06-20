@@ -230,7 +230,8 @@ function update(data) {
   // read https://bost.ocks.org/mike/join/ to understand the concept of update and enter
 
   colorScale.domain([
-    d3.min(data, function(d) { return parseInt(d.score); }),
+    // d3.min(data, function(d) { return parseInt(d.score); })
+    0,
     d3.max(data, function(d) { return parseInt(d.score); })
   ]);
 
@@ -318,7 +319,7 @@ function update(data) {
 
   track_column
     .transition(t)
-    // .attr("transform", function(d) { return "translate(" + track_scale(d.key) + ", 0)"; })
+    .attr("transform", function(d) { return "translate(" + track_scale(d.key) + ", 0)"; })
     .each(rect);
 
     methodtiph
@@ -396,7 +397,6 @@ function update(data) {
   track_column.exit()
     .transition(t)
     .style("fill-opacity", 1e-6)
-    // .attr("transform", function(d, i) { return "translate(0, 1000)"; })
     .remove();
 
   d3.selectAll(".oracle").attr("transform", "translate(0, 0)");
