@@ -13,7 +13,7 @@
           <th>Code</th>
         </tr>
       </thead>
-      <tbody v-for="record in json">
+      <tbody v-for="record in data" :key="record.short">
       <tr>
         <td>
           <router-link
@@ -51,35 +51,35 @@
 </template>
 
 <script>
-import bulma from 'bulma/css/bulma.css';
+import axios from 'axios'
 
 export default {
-  data: function() {
+  data: function () {
     return {
-      json: null
+      data: null
     }
   },
   filters: {
-    truncate: function(string, value) {
-        if( string ) {
-          return string.substring(0, value) + '...';
-        } else {
-          return ''
-        }
-    },
+    truncate: function (string, value) {
+      if (string) {
+        return string.substring(0, value) + '...'
+      } else {
+        return ''
+      }
+    }
   },
   mounted: function () {
-    var xhr = new XMLHttpRequest()
-    var self = this
-    xhr.open('GET', '/static/metadata.json')
-    xhr.onload = function () {
-      self.json = JSON.parse(xhr.responseText).filter(function (d) { return d ;})
-    }
-    xhr.send()
+    axios.get('/static/metadata.json')
+      .then(response => {
+        this.data = response.data
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   },
   methods: {
-    gh: function(string) {
-        return string.includes('github.com')
+    gh: function (string) {
+      return string.includes('github.com')
     }
   }
 }
