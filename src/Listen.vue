@@ -6,19 +6,13 @@
             <label id='track-label' class="label">Select Track</label>
           </div>
           <p class="control has-addons has-addons-centered">
-            <a  v-on:click="changeTrack(-1)" class="button">
-              <span class="fa fa-minus"></span>
-            </a>
             <span class="select">
-              <select v-model="selectedID">
-                <option v-for="track in availableIDs" v-bind:value="track.id">
-                  {{ track.id + " " + track.title }} ({{ track.id > 50 ? "Dev": "Test"}})
+              <select v-model="selectedTrack">
+                <option v-for="track in tracks" v-bind:value="track" v-bind:key="track">
+                  {{ track }}
                 </option>
               </select>
             </span>
-        <a v-on:click="changeTrack(1)" class="button">
-          <span class="fa fa-plus"></span>
-        </a>
       </p>
         </div>
         <div class="column is-narrow">
@@ -28,7 +22,7 @@
           <div class="control">
             <span class="select">
               <select v-model="selectedMethod">
-                <option v-for="method in availableMethods" v-bind:value="method.name">
+                <option v-for="method in availableMethods" v-bind:value="method.name" v-bind:key="method.name">
                   {{ method.name }}
                 </option>
               </select>
@@ -39,7 +33,7 @@
     <transition name="slide-fade">
       <div v-if="tracklist.length > 0">
           <div class="container">
-            <player :urls="tracklist" :title="title" :method='method'></player>
+            <player :urls="tracklist" :title="selectedTrack" :method='method'></player>
         </div>
       </div>
     </transition>
@@ -52,7 +46,6 @@ import * as d3 from 'd3'
 import Player from './player/Player.vue'
 import Method from './Method.vue'
 import headers from './headers.js'
-import balloon from 'balloon-css/balloon.css';
 
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
@@ -60,147 +53,121 @@ export default {
   components: {
     Selection, Player, ScaleLoader, Method
   },
-  data: function() {
+  data: function () {
     return {
       data: [],
+      tracks: [],
       availableMethods: [],
       selectedMethod: '-1',
-      availableIDs: [],
-      selectedID: '1',
+      selectedTrack: '',
       isLoading: true,
       loaderColor: 'orange',
-      loaderHeight: '26px',
+      loaderHeight: '26px'
     }
   },
-  created: function() {
-    this.isLoading = true;
+  created: function () {
+    this.isLoading = true
     this.availableMethods.push(
       {
         'name': 'REF'
       }
-    );
+    )
     for (let method of headers.methods) {
       this.availableMethods.push(
         {
           'name': method
         }
-      );
-    };
+      )
+    }
     this.selectedMethod = this.$route.params.method
-    this.selectedID = this.$route.params.track_id
+    this.selectedTrack = this.$route.params.track
   },
-  updated: function() {
-    this.isLoading = false;
+  updated: function () {
+    this.isLoading = false
   },
-  mounted: function() {
-    d3.csv("/static/sisec_mus_2017.csv").then((data) => {
+  mounted: function () {
+    d3.csv('/static/scores.csv').then((data) => {
       this.data = data
-    });
-    this.$http.get('/data/tracklist.json').then((response) => { return response.json(); }).then((json) => {
-      for (let track of json) {
-        this.availableIDs.push(
-          {
-            'id': track.id,
-            'title': track.name
-          }
-        );
-      };
-    });
+    })
+    this.tracks = headers.tracks
   },
   methods: {
-    changeTrack: function(add) {
-      for (let track of this.availableIDs) {
-        if (track.id == parseInt(this.selectedID) + add) {
-          this.selectedID = parseInt(this.selectedID) + add
-          return true
-        }
-      }
-    },
-    updateMethod: function() {
+    updateMethod: function () {
       this.selectedMethod = this.$route.params.method
     },
-    updateID: function() {
-      this.selectedID = this.$route.params.track_id
+    updateTrack: function () {
+      this.selectedTrack = this.$route.params.track
     },
-    updateURLforMethod: function() {
-      this.$router.push({ params: { method: this.selectedMethod }})
+    updateURLforMethod: function () {
+      this.$router.push({params: {method: this.selectedMethod}})
     },
-    updateURLforID: function() {
-      this.$router.push({ params: { track_id: this.selectedID }})
+    updateURLforTrack: function () {
+      this.$router.push({params: {track: this.selectedTrack}})
     },
-    toggleMode: function(d) {
-      this.decompose =! this.decompose
+    toggleMode: function (d) {
+      this.decompose = !this.decompose
     }
   },
   computed: {
-    title: function() {
-      for (let track of this.availableIDs) {
-        if (track.id == this.selectedID) {
-          return track.title;
-        }
-      }
-    },
-    embed: function() {
-      if (this.$route.query.mode == "embed") {
-        return true;
+    embed: function () {
+      if (this.$route.query.mode === 'embed') {
+        return true
       } else {
-        return false;
+        return false
       }
     },
-    method: function() {
+    method: function () {
       for (let method of this.availableMethods) {
-        if (method.name == this.selectedMethod) {
-          return method.name;
+        if (method.name === this.selectedMethod) {
+          return method.name
         }
       }
     },
-    tracklist: function() {
+    tracklist: function () {
       var trackstoload = []
-      if (this.$route.params.method == 'REF') {
+      if (this.$route.params.method === 'REF') {
         trackstoload.push(
           { 'name': 'Mixture',
             'customClass': 'mix',
             'solo': true,
             'mute': true,
             'file': [
-              this.$route.params.track_id,
-              'MIX'
-            ].join("_") + '.m4a'
+              'REF', 'test',
+              this.selectedTrack,
+              'mixture'
+            ].join('/') + '.m4a'
           }
-        );
+        )
 
         for (let target of headers.targets) {
           var isAccompaniment
-          if(target == 'accompaniment') {
+          if (target === 'accompaniment') {
             isAccompaniment = true
           } else {
             isAccompaniment = false
           }
-          trackstoload.push(
-            { 'name': target,
-              'customClass': target,
-              'solo': false,
-              'mute': isAccompaniment,
-              'file': [
-                this.$route.params.track_id,
-                'REF',
-                target
-              ].join("_") + '.m4a'
-            }
-          );
+          trackstoload.push({
+            'name': target,
+            'customClass': target,
+            'solo': false,
+            'mute': isAccompaniment,
+            'file': [
+              'REF', 'test',
+              this.selectedTrack,
+              target
+            ].join('/') + '.m4a'
+          })
         }
-      }
-      else {
-        var filterByMethod = this.data.filter(function(d) {
+      } else {
+        var filterByMethod = this.data.filter(function (d) {
           return (
-            d.track_id == this.$route.params.track_id &&
+            d.track_id == headers.tracks.indexOf(this.selectedTrack) &&
             d.method_id == headers.methods.indexOf(this.selectedMethod) &&
             d.metric_id == 2
-          );
-        }.bind(this));
-
-        if(!filterByMethod.length) {
-          return [];
+          )
+        }.bind(this))
+        if (!filterByMethod.length) {
+          return []
         }
 
         trackstoload.push(
@@ -209,15 +176,15 @@ export default {
             'solo': true,
             'mute': true,
             'file': [
-              this.$route.params.track_id,
-              'MIX'
-            ].join("_") + '.m4a'
+              'REF', 'test',
+              this.selectedTrack,
+              'mixture'
+            ].join('/') + '.m4a'
           }
-        );
+        )
 
         for (let track of filterByMethod) {
-          var isAccompaniment
-          if(headers.targets[track.target_id] == 'accompaniment') {
+          if (headers.targets[track.target_id] === 'accompaniment') {
             isAccompaniment = true
           } else {
             isAccompaniment = false
@@ -228,22 +195,22 @@ export default {
               'solo': false,
               'mute': isAccompaniment,
               'file': [
-                track.track_id,
-                headers.methods[track.method_id],
+                headers.methods[track.method_id], 'test',
+                this.selectedTrack,
                 headers.targets[track.target_id]
-              ].join("_") + '.m4a'
+              ].join('/') + '.m4a'
             }
-          );
+          )
         }
       }
-      return trackstoload;
+      return trackstoload
     }
   },
   watch: {
-    '$route.params.method' : 'updateMethod',
-    '$route.params.track_id' : 'updateID',
+    '$route.params.method': 'updateMethod',
+    '$route.params.track': 'updateTrack',
     'selectedMethod': 'updateURLforMethod',
-    'selectedID': 'updateURLforID'
+    'selectedTrack': 'updateURLforTrack'
   }
 }
 </script>
@@ -259,75 +226,6 @@ export default {
 
 .hide {
   opacity: 0;
-}
-
-#tracktiph {
-    position: absolute;
-    text-align: center;
-    width: 0px;
-    height: 100px;
-    padding: 2px;
-    opacity: 0;
-    font: 12px sans-serif;
-    background-color: transparent;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-    pointer-events: none;
-}
-
-#methodtiph {
-    position: absolute;
-    text-align: center;
-    width: 0px;
-    height: 100px;
-    padding: 2px;
-    opacity: 0;
-    background-color: transparent;
-    font: 12px sans-serif;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    pointer-events: none;
-}
-
-#tracktip {
-    position: absolute;
-    text-align: center;
-    width: 0px;
-    height: 100px;
-    padding: 2px;
-    opacity: 0;
-    font: 12px sans-serif;
-    background-color: transparent;
-    border-left: 2px solid #00d1b2;
-    border-right: 2px solid #00d1b2;
-    pointer-events: none;
-}
-
-#methodtip {
-    position: absolute;
-    text-align: center;
-    width: 0px;
-    height: 100px;
-    opacity: 0;
-    padding: 2px;
-    background-color: transparent;
-    font: 12px sans-serif;
-    border-top: 2px solid #00d1b2;
-    border-bottom: 2px solid #00d1b2;
-    pointer-events: none;
-}
-
-div.tooltip {
-  position: relative;
-  text-align: right;
-  width: 300px;
-  height: 30px;
-  padding: 0px;
-  margin-top: 0px;
-  margin-right: 50px;
-  font: 12px sans-serif;
-  border: 0px;
-  color: black;
 }
 
 text.method_label.active {

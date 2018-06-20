@@ -19,12 +19,6 @@
         <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric_id: '1' })}">SAR</router-link>
       </div>
     </div>
-    <div class="column is-narrow">
-      <div class="control has-addons">
-        <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { is_dev: '0' })}">Training</router-link>
-        <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { is_dev: '1' })}">Test</router-link>
-      </div>
-    </div>
   </div>
 </template>
 

@@ -75,16 +75,15 @@ export default {
   methods: {
     update_tracks: function(oldval, newval) {
       if(this.isLoading != true) {
-        this.stop();
-        this.player.playlist.clear();
-        this.isLoading = true;
-        this.player.loadTargets(this.urls);
+        this.stop()
+        this.isLoading = true
+        this.player.loadTargets(this.urls)
         for (var i = 0; i < this.urls.length; ++i) {
             (function(i, e) {
                 Mousetrap.bind(String(i + 1), function() {
                   e.player.playlist.getEventEmitter().emit('solo', e.player.playlist.tracks[i])
                 });
-            })(i, this);
+            })(i, this)
           }
         }
     },

@@ -29,7 +29,6 @@ var lgstop2
 
 var current_target_id
 var current_metric_id
-var current_is_dev
 var current_play_track_id
 var current_play_method
 
@@ -37,13 +36,11 @@ var colors
 var basecolor
 
 function setRoute(
-    is_dev,
     target_id,
     metric_id,
     play_track_id = undefined,
     play_method = undefined
 ) {
-  current_is_dev = is_dev;
   current_target_id = target_id;
   current_metric_id = metric_id;
   current_play_track_id = play_track_id;
@@ -166,7 +163,7 @@ function rect(data) {
       .attr("class", "rect_group")
     .append("svg:a")
       .attr("xlink:href", function(d){
-        return "/#/results/" + current_is_dev + '/' + current_target_id + '/' + current_metric_id + '/play/' + d.track_id + '/' + headers.methods[d.method_id];
+        return "/#/results/" + current_target_id + '/' + current_metric_id + '/play/' + d.track_id + '/' + headers.methods[d.method_id];
       })
     .append("rect")
     .classed("oracle", function(d) { return d.method_id == headers.methods.indexOf("IBM"); })

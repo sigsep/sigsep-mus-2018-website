@@ -28,7 +28,7 @@ Player.prototype.loadTargets = function(trackurls) {
   for (let track of trackurls) {
     tracksToLoad.push(
       {
-        "src": '/media/SISEC/' + track.file,
+        "src": '/static/AUDIO/' + track.file,
         "name": track.name,
         "muted": track.mute,
         "customClass": track.customClass,

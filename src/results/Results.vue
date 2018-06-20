@@ -51,6 +51,7 @@ import Player from '../player/Player.vue'
 import plot from './heatmap.js'
 import headers from '../headers.js'
 import balloon from 'balloon-css/balloon.css';
+import axios from 'axios'
 
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
@@ -75,7 +76,6 @@ export default {
   },
   mounted: function() {
     plot.setRoute(
-        this.$route.params.is_dev,
         this.$route.params.target_id,
         this.$route.params.metric_id,
         this.$route.params.track_id,
@@ -84,26 +84,30 @@ export default {
 
     plot.init()
 
-    d3.csv("/static/sisec_mus_2017.csv").then((data) => {
+    d3.csv("/static/scores.csv").then((data) => {
       console.log(data)
       this.data = data
       this.update()
-    });
-    this.$http.get('/static/tracklist.json').then((response) => { return response.json(); }).then((json) => {
-      for (let track of json) {
-        this.availableIDs.push(
-          {
-            'id': track.id,
-            'title': track.name
-          }
-        );
-      };
-    });
+    })
+
+    axios.get('/static/tracklist.json')
+      .then(response => {
+        for (let track of response.data) {
+          this.availableIDs.push(
+            {
+              'id': track.id,
+              'title': track.name
+            }
+          )
+        }
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   },
   methods: {
     update: function() {
       plot.setRoute(
-          this.$route.params.is_dev,
           this.$route.params.target_id,
           this.$route.params.metric_id,
           this.$route.params.track_id,
@@ -127,8 +131,7 @@ export default {
       return this.data.filter(function(d) {
         return (
           d.target_id == this.$route.params.target_id &&
-          d.metric_id == this.$route.params.metric_id &&
-          d.is_dev == this.$route.params.is_dev
+          d.metric_id == this.$route.params.metric_id
         );
       }.bind(this));
     },
@@ -238,7 +241,6 @@ export default {
     }
   },
   watch: {
-    '$route.params.is_dev': 'update',
     '$route.params.target_id': 'update',
     '$route.params.metric_id': 'update',
     '$route.params.method' : 'update',
@@ -313,7 +315,7 @@ export default {
     pointer-events: none;
 }
 
-div.tooltip {
+/* div.tooltip {
   position: relative;
   text-align: right;
   width: 300px;
@@ -324,7 +326,7 @@ div.tooltip {
   font: 12px sans-serif;
   border: 0px;
   color: black;
-}
+} */
 
 text.method_label.active {
   fill: orange;

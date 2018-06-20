@@ -7,7 +7,7 @@
          <nav class="navbar has-shadow" role="navigation" >
             <div class="navbar-brand">
                <a class="navbar-item" href="/">
-                <img src="/favicon.png" alt="SISEC"><h1 class="title is-4">SiSEC MUS</h1>
+                <img src="/static/favicon.png" alt="SISEC"><h1 class="title is-5">SiSEC MUS 2018</h1>
                </a>
                <div class="navbar-menu">
                  <main-menu></main-menu>
