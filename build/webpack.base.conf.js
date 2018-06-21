@@ -68,6 +68,10 @@ module.exports = {
         }
       },
       {
+        test: /\.(m4a)(\?.*)?$/,
+        loader: 'file-loader'
+      },
+      {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {

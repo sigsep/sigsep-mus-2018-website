@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-center navbar-menu">
+  <div class="navbar-end navbar-menu">
       <router-link class="navbar-item is-tab" :to="{ path: '/dataset' }">Dataset</router-link>
       <router-link class="navbar-item is-tab" :to="{ path: '/methods' }">Methods</router-link>
       <router-link class="navbar-item is-tab" :to="{ path: '/results' }">Results</router-link>
@@ -10,7 +10,6 @@
         <span>Listen</span>
       </router-link>
       <router-link class="navbar-item is-tab" :to="{ path: '/about' }">About</router-link>
-      <div class="navbar-end">
       <div class="navbar-item">
         <a
         href="http://sisec.inria.fr" class="button is-info is-outlined"
@@ -29,7 +28,6 @@
           <span>Cite</span>
         </a>
       </div>
-        </div>
    <div class="modal" v-bind:class="{ 'is-active': showCite }">
     <div class="modal-background"></div>
     <div class="modal-card">

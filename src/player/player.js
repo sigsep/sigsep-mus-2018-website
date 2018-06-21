@@ -11,7 +11,8 @@ var Player = function() {
     exclSolo: true,
     state: 'cursor',
     colors: {
-      waveOutlineColor: '#F0F0F0'
+      waveOutlineColor: '#282828',
+      fadeColor: 'black'
     },
     controls: {
       show: true, //whether or not to include the track controls
@@ -28,7 +29,7 @@ Player.prototype.loadTargets = function(trackurls) {
   for (let track of trackurls) {
     tracksToLoad.push(
       {
-        "src": '/static/AUDIO/' + track.file,
+        "src": 'http://sisec18.s3-website.eu-west-3.amazonaws.com/AUDIO/' + track.file,
         "name": track.name,
         "muted": track.mute,
         "customClass": track.customClass,

@@ -4,7 +4,7 @@
     <template v-if="!embed">
      <div class="hero-head">
        <div class="container">
-         <nav class="navbar has-shadow" role="navigation" >
+         <nav class="navbar" role="navigation" >
             <div class="navbar-brand">
                <a class="navbar-item" href="/">
                 <img src="/static/favicon.png" alt="SISEC"><h1 class="title is-5">SiSEC MUS 2018</h1>
@@ -64,6 +64,9 @@ export default {
 
 <style>
 
+.footer {
+  background-color: #191919;
+}
 .navbar-brand img {
   margin-right: 1em;
 }

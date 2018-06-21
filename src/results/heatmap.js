@@ -111,6 +111,7 @@ function init() {
     .attr("class", "xlabel")
     .attr("transform", "translate(" + ((width / 2) - 20) + ", -34)")
     .attr("style", "font-size: 18")
+    .style("fill", "white")
     .text('Audio Track');
 
   svgLegend = g.append('g')
@@ -118,7 +119,7 @@ function init() {
     .attr("transform", "translate("+ (d3.max(track_scale.range()) + gridSize + gridSize) + ", 0)");
 
   svgLegendText = svgLegend.append("text")
-      .style("fill", "black");
+      .style("fill", "white");
 
   svgLegendRect = svgLegend.append("rect")
     .attr("width", gridSize)
@@ -230,7 +231,7 @@ function update(data) {
   // read https://bost.ocks.org/mike/join/ to understand the concept of update and enter
 
   colorScale.domain([
-    // d3.min(data, function(d) { return parseInt(d.score); })
+    // d3.min(data, function(d) { return parseInt(d.score); }),
     0,
     d3.max(data, function(d) { return parseInt(d.score); })
   ]);
@@ -286,6 +287,7 @@ function update(data) {
 
   // update method_label
   method_label
+    .style("font-color", "white")
     .text(function(d) { return headers.methods[d.key]})
     .style("alignment-baseline", "middle")
     .style("font-size", .66 * gridSize + "px")
@@ -304,6 +306,7 @@ function update(data) {
     .style("font-size", .66 * gridSize + "px")
     .style("text-anchor", "end")
     .style("alignment-baseline", "middle")
+    .style("fill", "white")
     .text(function(d) { return headers.methods[d.key]})
     .attr("y", function(d) { return method_scale(headers.methods[d.key]); })
     .attr("height", method_scale.bandwidth())
@@ -392,6 +395,7 @@ function update(data) {
     .attr("y", - 0.5 * (.66 * gridSize))
     .attr("x", 4)
     .text(function(d) {return d.key})
+    .style("fill", "white")
 
 
   track_column.exit()
@@ -433,7 +437,7 @@ function update(data) {
 
   svgLegendText
     .attr("width", gridSize)
-    .style("fill", "black")
+    .style("fill", "white")
     .attr("x", -1.5 * gridSize)
     .attr("y", -0.5 * gridSize)
     .text(function(d) { return headers.metrics[data[0].metric_id] + " in dB"; });

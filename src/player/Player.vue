@@ -155,6 +155,11 @@ export default {
   color: black;
 }
 
+#playlist .playlist-tracks  header {
+  font-size: 14px;
+}
+
+
 #playlist .playlist-tracks .vocals header {
   color: white;
   background-color: #56B4E9;
@@ -181,16 +186,18 @@ export default {
 }
 
 
-/*.playlist .channel-wrapper .controls label {
+/* .playlist .channel-wrapper .controls label {
     display: none !important;
-}*/
+} */
 
 .playlist .channel-wrapper .controls .btn {
     margin-left: 4px;
 }
 
 .playlist .channel-wrapper .controls .btn-solo.active {
-    background-color: orange!important;
+    background-color: #375a7f!important;
+    border-color: #375a7f!important;
+    color:white;
 }
 
 /*.playlist .channel-wrapper .controls .btn-mute {
@@ -206,11 +213,11 @@ export default {
   .playlist .playlist-tracks {
     background: white; }
   .playlist .channel {
-    background: grey; }
-  .playlist .channel-progress {
-    background: orange; }
+    background: #7b7b7b; }
+  .playlist .channel-progress.silent {
+    background: white; }
   .playlist .cursor {
-    background: black; }
+    background: white; }
   .playlist .wp-fade {
     background-color: rgba(0, 0, 0, 0.1); }
   .playlist .state-cursor,
@@ -227,13 +234,16 @@ export default {
   .playlist .selection.segment {
     background: rgba(0, 0, 0, 0.1); }
   .playlist .channel-wrapper.silent .channel {
-    opacity: 0.3; }
+      background: #313131;
+  }
+  .playlist .channel-wrapper.silent .channel {
+    opacity: 0.9; }
   .playlist .controls {
-    background: white;
+    background: black;
     text-align: center; }
     .playlist .controls header {
       overflow: hidden;
-      color: white;
+      color: black;
       background-color: #00d1b2;
       margin-bottom: 0.5em;
       height: 20px; }
@@ -266,13 +276,13 @@ export default {
       width: 75%; }
     .playlist .controls input[type=range]::-webkit-slider-runnable-track {
       height: 8px;
-      background: #ddd;
+      background: #303030;
       border: none;
       border-radius: 3px;
       padding: 1px; }
     .playlist .controls input[type=range]::-moz-range-track {
       height: 8px;
-      background: #ddd;
+      background: #303030;
       border: none;
       border-radius: 3px;
       padding: 1px; }
@@ -281,26 +291,22 @@ export default {
       -moz-appearance: none;
       appearance: none;
       border: none;
-      height: 16px;
-      width: 16px;
+      height: 10px;
+      width: 10px;
       border-radius: 50%;
-      background: goldenrod;
+      background: #909090;
       margin-top: -5px;
       cursor: ew-resize; }
     .playlist .controls input[type=range]::-moz-range-thumb {
       border: none;
-      height: 16px;
-      width: 16px;
+      height: 10px;
+      width: 10px;
       border-radius: 50%;
-      background: goldenrod;
+      background: #909090;
       margin-top: -5px;
       cursor: ew-resize; }
     .playlist .controls input[type=range]:focus {
       outline: none; }
-    .playlist .controls input[type=range]:focus::-webkit-slider-runnable-track {
-      background: #ccc; }
-    .playlist .controls input[type=range]:focus::-moz-range-track {
-      background: #ccc; }
 
       .btn {
         display: inline-block;
@@ -357,27 +363,27 @@ export default {
         pointer-events: none;
       }
       .btn-default {
-        color: #333333;
-        background-color: #ffffff;
-        border-color: #cccccc;
+        color: #909090;
+        background-color: #232323;
+        border-color: #232323;
       }
       .btn-default:focus,
       .btn-default.focus {
-        color: #333333;
-        background-color: #e6e6e6;
-        border-color: #8c8c8c;
+        color: #909090;
+        background-color: #232323;
+        border-color: #232323;
       }
       .btn-default:hover {
-        color: #333333;
-        background-color: #e6e6e6;
-        border-color: #adadad;
+        color: white;
+        background-color: #606060;
+        border-color: #606060;
       }
       .btn-default:active,
       .btn-default.active,
       .open > .dropdown-toggle.btn-default {
         color: #333333;
         background-color: #e6e6e6;
-        border-color: #adadad;
+        border-color: #e6e6e6;
       }
       .btn-default:active:hover,
       .btn-default.active:hover,
@@ -390,7 +396,7 @@ export default {
       .open > .dropdown-toggle.btn-default.focus {
         color: #333333;
         background-color: #d4d4d4;
-        border-color: #8c8c8c;
+        border-color: #d4d4d4;
       }
       .btn-default:active,
       .btn-default.active,
