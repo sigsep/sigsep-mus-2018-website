@@ -12,19 +12,18 @@
               This website aims to introduce state-of-the-art algorithms in
               audio source separation.
               Here we present the <strong>Music (MUS)</strong> task of the <strong>sixth
-              community-based Signal Separation Evaluation Campaign (SiSEC 2016)</strong>.
-              We show both, objective and subjective results of 100 full-track songs of
+              community-based Signal Separation Evaluation Campaign (SiSEC 2018)</strong>.
+              We show both, objective and subjective results of 50 full-track songs of
               different styles separated into five components: <strong>vocals, accompaniment, drums, bass and other</strong>.
           </h2>
           <br>
-          <p class="has-text-centered">
-              <router-link class="button is-large is-primary is-inverted" :to="{ path: '/listen/' + this.getRandomNumber() + '/REF'}">
+              <router-link class="button is-large is-primary" :to="{ path: '/listen/REF'}">
                   <span class="icon">
                       <i class="fa fa-volume-up"></i>
                   </span>
-                  <span>Listen to random Track</span>
+                  <span>Listen to Separation Results</span>
               </router-link>
-              <a class="button is-large is-info is-inverted" href="http://link.springer.com/chapter/10.1007/978-3-319-53547-0_31">
+              <a class="button is-large is-info" href="https://arxiv.org/abs/1804.06267">
                   <span class="icon">
                       <i class="fa fa-book"></i>
                   </span>
@@ -32,7 +31,6 @@
                         LVA/ICA Paper
                   </span>
               </a>
-          </p>
 
         </div>
       </div>

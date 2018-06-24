@@ -27,8 +27,10 @@
    <div class="container">
      <div class="content has-text-centered">
        <p>
-         <span><img src="./assets/logo_INRIA.png" alt="Inria" width="200px"></span>
+         <span class="logo"><img src="./assets/logo_INRIA.png" alt="Inria" width="180px"></span>
+         <span class="logo"><img src="./assets/logo_lirmm.svg" alt="LIRMM" width="90px"></span>
        </p>
+
        <p>
          The website content
          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
@@ -67,6 +69,11 @@ export default {
 .footer {
   background-color: #191919;
 }
+
+.logo {
+  margin-right: 2em;
+}
+
 .navbar-brand img {
   margin-right: 1em;
 }
