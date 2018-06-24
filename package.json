@@ -2,7 +2,7 @@
   "name": "sisec18-new",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Fabian-Robert Stöter <fabian-robert.stoeter@audiolabs-erlangen.de>",
+  "author": "Fabian-Robert Stöter <fabian-robert.stoter@lirmm.fr>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

@@ -1,8 +1,6 @@
-# sisec18-new
+# SiSEC MUS 2018 Website
 
-> A Vue.js project
-
-## Build Setup
+## Build Website
 
 ``` bash
 # install dependencies
