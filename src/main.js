@@ -6,6 +6,7 @@ import VueLazyload from 'vue-lazyload'
 import App from './App.vue'
 import Results from './results/Results.vue'
 import Listen from './Listen.vue'
+import Compare from './Compare.vue'
 import Player from './player/Player.vue'
 import About from './About.vue'
 import Methods from './Methods.vue'
@@ -27,7 +28,7 @@ const router = new VueRouter({
         { path: '', component: Home },
         { path: 'listen', redirect: { name: 'listen', params: { track: 'AM Contra - Heart Peripheral', method: 'REF' }}, props: (route) => ({ mode: route.query.mode })},
         { path: 'listen/:track/:method', name: 'listen', component: Listen},
-        { path: 'compare/:track/:target', name: 'listen', component: Listen},
+        { path: 'compare/:track/:method', name: 'compare', component: Compare},
         { path: 'results', redirect: { name: 'results', params: {target: 'vocals', metric: 'SDR' } } },
         { path: 'results/:target/:metric', name: 'results', component: Results },
         { path: 'results/:target/:metric/play/:track_id/:method', name: 'player', component: Results },
