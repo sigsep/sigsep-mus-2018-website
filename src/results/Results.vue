@@ -23,7 +23,7 @@
             <player :urls="tracklist" :title="title" :method='method'></player>
           </div>
           <div class='column has-text-right'>
-            <router-link class='button is-danger' :to="{ name: 'listen', params: { track_id: this.$route.params.track_id, method: this.$route.params.method }}">
+            <router-link class='button is-danger' :to="{ name: 'listen', params: { track: this.tracks[this.$route.params.track_id], method: this.$route.params.method }}">
               Show details
             </router-link>
           </div>
@@ -130,9 +130,10 @@ export default {
             'solo': true,
             'mute': true,
             'file': [
-              this.$route.params.track_id,
-              'MIX'
-            ].join("_") + '.m4a'
+              'REF', 'test',
+              this.tracks[this.$route.params.track_id],
+              'mixture'
+            ].join("/") + '.m4a'
           }
         );
 
@@ -146,13 +147,13 @@ export default {
           trackstoload.push(
             { 'name': target,
               'customClass': target,
-              'solo': headers.targets.indexOf(target) == this.$route.params.target_id,
+              'solo': target == this.$route.params.target,
               'mute': isAccompaniment,
               'file': [
-                this.$route.params.track_id,
-                'REF',
+                'REF', 'test',
+                this.tracks[this.$route.params.track_id],
                 target
-              ].join("_") + '.m4a'
+              ].join("/") + '.m4a'
             }
           );
         }
@@ -195,9 +196,10 @@ export default {
             'solo': true,
             'mute': true,
             'file': [
-              this.$route.params.track_id,
-              'MIX'
-            ].join("_") + '.m4a'
+              'REF', 'test',
+              this.tracks[this.$route.params.track_id],
+              'mixture'
+            ].join('/') + '.m4a'
           }
         );
 
@@ -214,10 +216,10 @@ export default {
               'solo': track.target_id == this.$route.params.target_id,
               'mute': isAccompaniment,
               'file': [
-                track.track_id,
-                headers.methods[track.method_id],
+                headers.methods[track.method_id], 'test',
+                this.tracks[this.$route.params.track_id],
                 headers.targets[track.target_id]
-              ].join("_") + '.m4a'
+              ].join("/") + '.m4a'
             }
           );
         }
