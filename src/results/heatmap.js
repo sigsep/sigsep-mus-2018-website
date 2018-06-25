@@ -13,6 +13,7 @@ var defs
 var linearGradient
 var g
 var tooltip
+var tracklabeltip
 var tracktip
 var methodtip
 var tracktiph
@@ -34,6 +35,10 @@ var current_play_method
 
 var colors
 var basecolor
+
+function precise(x) {
+  return Number.parseFloat(x).toPrecision(3);
+}
 
 function setRoute(
     target_id,
@@ -131,6 +136,8 @@ function init() {
     .attr("class", "tooltip")
     .style("opacity", 0);
 
+  tracklabeltip = d3.select("#tracklabeltip");
+
   tracktip = d3.select("#tracktip")
     .style("opacity", 0);
 
@@ -144,6 +151,7 @@ function init() {
     .style("opacity", 0);
 
 }
+
 
 // plot the actual score rectangles row-wise for each track column
 function rect(data) {
@@ -197,8 +205,17 @@ function rect(data) {
          .duration(200)
          .style("opacity", .9);
        tooltip.html(
-         headers.metrics[d.metric_id] + ': ' + d.score
-       )
+         headers.metrics[d.metric_id] + ': ' + precise(d.score)
+       );
+       tracklabeltip.transition()
+          .duration(200)
+          .style("opacity", .9);
+       tracklabeltip
+          .style("height", ( height + 'px'))
+          .style("left", (track_scale(d.track_id)) + 0 + "px");
+       tracklabeltip.html(
+         headers.tracks[d.track_id]
+       );
        d3.selectAll(".method_label").classed("active", function(x) { return d.method_id == x.key; });
       })
      .on("mouseout", function(d) {
@@ -211,7 +228,9 @@ function rect(data) {
           methodtiph.transition()
           .duration(200)
           .style("opacity", 0);
-
+          tracklabeltip.transition()
+            .duration(200)
+            .style("opacity", 0);
       });
 
     // delete rectangles
@@ -382,22 +401,6 @@ function update(data) {
     .style("fill-opacity", 1)
     .each(rect)
 
-  var track_column_enter_label = track_column_enter
-    .append("g")
-    .attr("class", "track_label_group");
-
-  track_column_enter_label
-    .append('text')
-    .attr("class", "track_label")
-    .style("text-anchor", "start")
-    .style("font-size", .66 * gridSize + "px")
-    .style("cursor", "pointer")
-    .attr("y", - 0.5 * (.66 * gridSize))
-    .attr("x", 4)
-    .text(function(d) {return d.key})
-    .style("fill", "white")
-
-
   track_column.exit()
     .transition(t)
     .style("fill-opacity", 1e-6)
@@ -415,7 +418,6 @@ function update(data) {
     //Set the color for the end (100%)
   lgstop2.attr("stop-color", colorHigh);
 
-  console.log(colorScale.range()[1].toString())
   svgLegendRect.style("fill", "url(#linear-gradient)");
 
   legendRect
@@ -433,14 +435,15 @@ function update(data) {
 
   //Set up X axis
   legend
+    .attr("class", "axisWhite")
     .call(yAxis);
 
   svgLegendText
     .attr("width", gridSize)
     .style("fill", "white")
-    .attr("x", -1.5 * gridSize)
-    .attr("y", -0.5 * gridSize)
-    .text(function(d) { return headers.metrics[data[0].metric_id] + " in dB"; });
+    .attr("x", .5 * gridSize)
+    .attr("y", 0.4 * gridSize)
+    .text(function(d) { return headers.metrics[data[0].metric_id] + " in dB"; })
 }
 
 export default { init, update, setRoute }

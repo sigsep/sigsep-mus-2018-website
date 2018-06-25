@@ -11,6 +11,7 @@
       <div id="d3container" v-bind:class="{ 'hide': isLoading }" data-balloon="Click on any square to start playback" data-balloon-pos="top" >
         <svg id='heatmap'width="900" height="300"></svg>
         <div id='tracktip'></div>
+        <div id='tracklabeltip'></div>
         <div id='methodtip'></div>
         <div id='tracktiph'></div>
         <div id='methodtiph'></div>
@@ -252,7 +253,7 @@ export default {
 <style>
 
 #d3container {
-  margin-top: 0em;
+  margin-top: 0px;
 }
 
 .hide {
@@ -301,6 +302,19 @@ export default {
     pointer-events: none;
 }
 
+#tracklabeltip {
+    position: absolute;
+    z-index: 1000;
+    text-align: left;
+    height: 10px;
+    top: 2.5em;
+    margin-left: 50px;
+    padding: 0px;
+    font: 12px sans-serif;
+    color: white;
+    pointer-events: none;
+}
+
 #methodtip {
     position: absolute;
     text-align: center;
@@ -315,18 +329,18 @@ export default {
     pointer-events: none;
 }
 
-/* div.tooltip {
-  position: relative;
-  text-align: right;
-  width: 300px;
-  height: 30px;
-  padding: 0px;
-  margin-top: 0px;
-  margin-right: 50px;
-  font: 12px sans-serif;
-  border: 0px;
-  color: black;
-} */
+
+.axisWhite line{
+  stroke: white;
+}
+
+.axisWhite path{
+  stroke: white;
+}
+
+.axisWhite text{
+  fill: white;
+}
 
 text.method_label.active {
   fill: orange;

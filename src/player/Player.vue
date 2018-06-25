@@ -5,13 +5,13 @@
       <div class="column">
         <h2 class="title"><em>{{ title }}</em></h2>
       </div>
-      <div class="column is-narrow">
+      <div class="column is-narrow" ref="playbutton">
         <span class="control has-addons">
-          <a class="button is-primary"
+          <a class="button is-primary is-rounded"
             v-bind:class="{ 'is-active': isPlaying, 'is-disabled': isLoading }"
             v-on:click='playpause'><span v-bind:class="isPlaying ? 'fa fa-pause' : 'fa fa-play' "></span>
           </a>
-          <a class="button is-light"
+          <a class="button is-rounded"
             v-bind:class="{ 'is-disabled': isLoading }"
             v-on:click='stop'><span class="fa fa-stop"></span></a>
         </span>
@@ -115,6 +115,7 @@ export default {
       this.$emit('toggleMode', "foo")
     },
     audioLoaded: function () {
+      this.$nextTick(() => this.$refs.playbutton.focus())
       this.isLoading = false
     },
     updateTime: function (playbackPosition) {
