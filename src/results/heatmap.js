@@ -28,8 +28,8 @@ var svgLegendText
 var lgstop1
 var lgstop2
 
-var current_target_id
-var current_metric_id
+var current_target
+var current_metric
 var current_play_track_id
 var current_play_method
 
@@ -41,13 +41,13 @@ function precise(x) {
 }
 
 function setRoute(
-    target_id,
-    metric_id,
+    target,
+    metric,
     play_track_id = undefined,
     play_method = undefined
 ) {
-  current_target_id = target_id;
-  current_metric_id = metric_id;
+  current_target = target;
+  current_metric = metric;
   current_play_track_id = play_track_id;
   current_play_method = play_method;
 };
@@ -172,7 +172,7 @@ function rect(data) {
       .attr("class", "rect_group")
     .append("svg:a")
       .attr("xlink:href", function(d){
-        return "/#/results/" + current_target_id + '/' + current_metric_id + '/play/' + d.track_id + '/' + headers.methods[d.method_id];
+        return "/#/results/" + current_target + '/' + current_metric + '/play/' + d.track_id + '/' + headers.methods[d.method_id];
       })
     .append("rect")
     .classed("oracle", function(d) { return d.method_id == headers.methods.indexOf("IBM"); })
@@ -240,7 +240,7 @@ function rect(data) {
 
 function update(data) {
   // Set color scale
-  colorLow = 'black', colorHigh = colors[headers.targets[current_target_id]];
+  colorLow = 'black', colorHigh = colors[current_target];
 
   colorScale = d3.scaleLinear()
     .range([colorLow, colorHigh]);

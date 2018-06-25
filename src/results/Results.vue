@@ -66,7 +66,7 @@ export default {
       isLoading: true,
       loaderColor: 'orange',
       loaderHeight: '26px',
-      availableIDs: [],
+      tracks: []
     }
   },
   created: function() {
@@ -77,8 +77,8 @@ export default {
   },
   mounted: function() {
     plot.setRoute(
-        this.$route.params.target_id,
-        this.$route.params.metric_id,
+        this.$route.params.target,
+        this.$route.params.metric,
         this.$route.params.track_id,
         this.$route.params.method
     );
@@ -91,26 +91,13 @@ export default {
       this.update()
     })
 
-    axios.get('/static/tracklist.json')
-      .then(response => {
-        for (let track of response.data) {
-          this.availableIDs.push(
-            {
-              'id': track.id,
-              'title': track.name
-            }
-          )
-        }
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
+    this.tracks = headers.tracks
   },
   methods: {
     update: function() {
       plot.setRoute(
-          this.$route.params.target_id,
-          this.$route.params.metric_id,
+          this.$route.params.target,
+          this.$route.params.metric,
           this.$route.params.track_id,
           this.$route.params.method
       );
@@ -119,11 +106,7 @@ export default {
   },
   computed: {
     title: function() {
-      for (let track of this.availableIDs) {
-        if (track.id == this.$route.params.track_id) {
-          return track.title;
-        }
-      }
+      return this.tracks[this.$route.params.track_id]
     },
     method: function() {
       return this.$route.params.method
@@ -131,8 +114,8 @@ export default {
     subset: function() {
       return this.data.filter(function(d) {
         return (
-          d.target_id == this.$route.params.target_id &&
-          d.metric_id == this.$route.params.metric_id
+          d.target_id == headers.targets.indexOf(this.$route.params.target) &&
+          d.metric_id == headers.metrics.indexOf(this.$route.params.metric)
         );
       }.bind(this));
     },
@@ -180,15 +163,15 @@ export default {
         return (
           d.track_id == this.$route.params.track_id &&
           d.method_id == headers.methods.indexOf(this.$route.params.method) &&
-          d.metric_id == this.$route.params.metric_id
+          d.metric_id == headers.metrics.indexOf(this.$route.params.metric)
         );
       }.bind(this));
 
       var filterByTarget = this.data.filter(function(d) {
         return (
           d.track_id == this.$route.params.track_id &&
-          d.target_id == this.$route.params.target_id &&
-          d.metric_id == this.$route.params.metric_id
+          d.target_id == headers.targets.indexOf(this.$route.params.target) &&
+          d.metric_id == headers.metrics.indexOf(this.$route.params.metric)
         );
       }.bind(this));
 
@@ -242,8 +225,8 @@ export default {
     }
   },
   watch: {
-    '$route.params.target_id': 'update',
-    '$route.params.metric_id': 'update',
+    '$route.params.target': 'update',
+    '$route.params.metric': 'update',
     '$route.params.method' : 'update',
     '$route.params.track_id' : 'update'
   }

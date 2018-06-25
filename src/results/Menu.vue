@@ -4,19 +4,19 @@
     </div>
     <div class="column is-narrow">
       <div class="control">
-        <router-link class="button is-vocals" active-class="is-primary"   :to="{ name: $route.name, params: Object.assign({}, $route.params, { target_id: '4' })}">Vocals</router-link>
-        <router-link class="button is-acc" active-class="is-primary"      :to="{ name: $route.name, params: Object.assign({}, $route.params, { target_id: '0' })}">Accompaniment</router-link>
-        <router-link class="button is-drums" active-class="is-primary"    :to="{ name: $route.name, params: Object.assign({}, $route.params, { target_id: '2' })}">Drums</router-link>
-        <router-link class="button is-bass" active-class="is-primary"     :to="{ name: $route.name, params: Object.assign({}, $route.params, { target_id: '1' })}">Bass</router-link>
-        <router-link class="button is-other" active-class="is-primary"    :to="{ name: $route.name, params: Object.assign({}, $route.params, { target_id: '3' })}">Other</router-link>
+        <router-link class="button is-vocals" active-class="is-primary"   :to="{ name: $route.name, params: Object.assign({}, $route.params, { target: 'vocals' })}">Vocals</router-link>
+        <router-link class="button is-acc" active-class="is-primary"      :to="{ name: $route.name, params: Object.assign({}, $route.params, { target: 'accompaniment' })}">Accompaniment</router-link>
+        <router-link class="button is-drums" active-class="is-primary"    :to="{ name: $route.name, params: Object.assign({}, $route.params, { target: 'drums' })}">Drums</router-link>
+        <router-link class="button is-bass" active-class="is-primary"     :to="{ name: $route.name, params: Object.assign({}, $route.params, { target: 'bass' })}">Bass</router-link>
+        <router-link class="button is-other" active-class="is-primary"    :to="{ name: $route.name, params: Object.assign({}, $route.params, { target: 'other' })}">Other</router-link>
       </div>
     </div>
     <div class="column is-narrow">
       <div class="control">
-        <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric_id: '2' })}">SDR</router-link>
-        <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric_id: '0' })}">ISR</router-link>
-        <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric_id: '3' })}">SIR</router-link>
-        <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric_id: '1' })}">SAR</router-link>
+        <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric: 'SDR' })}">SDR</router-link>
+        <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric: 'ISR' })}">ISR</router-link>
+        <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric: 'SIR' })}">SIR</router-link>
+        <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric: 'SAR' })}">SAR</router-link>
       </div>
     </div>
   </div>
