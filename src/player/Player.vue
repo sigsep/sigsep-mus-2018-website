@@ -216,7 +216,7 @@ export default {
   .playlist .playlist-time-scale {
     height: 30px; }
   .playlist .playlist-tracks {
-    background: white; }
+    background: transparent; }
   .playlist .channel {
     background: #7b7b7b; }
   .playlist .channel-progress.silent {

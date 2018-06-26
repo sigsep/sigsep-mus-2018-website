@@ -59,9 +59,9 @@ export default {
   computed: {
     embed: function() {
       if (this.$route.query.mode == "embed") {
-        return true;
+        return true
       } else {
-        return false;
+        return false
       }
     },
   }

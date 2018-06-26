@@ -1,5 +1,15 @@
 [
   {
+    "short": "REF",
+    "authors": "",
+    "affiliation": "",
+    "code": "",
+    "website": "",
+    "is_oracle": true,
+    "is_blind": false,
+    "add_data": false,
+  },
+  {
     "short": "2DFT",
     "authors": "Prem Seetharaman, Fatemeh Pishdadian, Bryan Pardo, Ethan Manilow (implementation author)",
     "affiliation": "Northwestern University, United States",
