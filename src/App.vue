@@ -27,13 +27,23 @@
    <div class="container">
      <div class="content has-text-centered">
        <p>
-         <span class="logo"><img src="./assets/logo_INRIA.png" alt="Inria" width="180px"></span>
-         <span class="logo"><img src="./assets/logo_lirmm.svg" alt="LIRMM" width="90px"></span>
-       </p>
-
-       <p>
-         The website content
-         is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+         Organized by:
+         <span class="logo">
+           <a href="http://www.inria.fr">
+             <img src="./assets/logo_INRIA.png" alt="Inria" width="180px">
+           </a>
+         </span>
+         <span class="logo">
+           <a href="http://www.lirmm.fr">
+             <img src="./assets/logo_lirmm.svg" alt="LIRMM" width="70px">
+           </a>
+         </span>
+         <span class="logo">
+           Sponsored by:
+           <a href="http://www.native-instruments.com">
+             <img src="./assets/logo_ni.svg" alt="LIRMM" width="80px">
+           </a>
+         </span>
        </p>
      </div>
    </div>
