@@ -7,10 +7,13 @@
           <th>Method</th>
           <th>Authors</th>
           <th>Affiliation</th>
-          <th>Mail</th>
-          <th>Is Supervised?</th>
-          <th>Uses Data-Augmentation</th>
-          <th>Code</th>
+          <th>Blind
+            <span class="icon has-text-info">
+              <i class="fa fa-info-circle"></i>
+            </span>
+          </th>
+          <th>Additional Training</th>
+          <th>Code/Website</th>
         </tr>
       </thead>
       <tbody v-for="record in data" :key="record.short">
@@ -24,25 +27,29 @@
         </td>
         <td>{{record.authors}}</td>
         <td>{{record.affiliation}}</td>
-        <td class="is-icon">
-          <a v-if="record.email" :href="'mailto:' + record.email">
-            <i class="fa fa-envelope-o"></i>
-          </a>
-        </td>
-        <td class="is-icon">
-          <span v-if="record.is_supervised">
+        <td>
+          <span class="icon" v-if="record.is_blind">
             <i class="fa fa-check"></i>
           </span>
         </td>
-        <td class="is-icon">
-          <span v-if="record.uses_augmentation">
+        <td>
+          <span class="icon" v-if="record.add_data">
             <i class="fa fa-check"></i>
           </span>
         </td>
-        <td class="is-icon">
-          <a v-if="record.code" :href="record.code">
-            <i v-bind:class="gh(record.code) ? 'fa fa-github' : 'fa fa-code' "></i>
-          </a>
+        <td>
+          <p class="buttons has-addons">
+            <a class="button is-small is-success" v-if="record.code" :href="record.code">
+              <span class="icon">
+                <i v-bind:class="gh(record.code) ? 'fa fa-github' : 'fa fa-code' "></i>
+              </span>
+            </a>
+            <a class="button is-small is-info" v-if="record.website" :href="record.website">
+              <span class="icon">
+                <i class="fa fa-eye"></i>
+              </span>
+            </a>
+          </p>
         </td>
       </tr>
       </tbody>

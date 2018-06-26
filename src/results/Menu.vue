@@ -3,7 +3,7 @@
     <div class="column is-narrow">
     </div>
     <div class="column is-narrow">
-      <div class="control">
+      <div class="buttons has-addons">
         <router-link class="button is-vocals" active-class="is-primary"   :to="{ name: $route.name, params: Object.assign({}, $route.params, { target: 'vocals' })}">Vocals</router-link>
         <router-link class="button is-acc" active-class="is-primary"      :to="{ name: $route.name, params: Object.assign({}, $route.params, { target: 'accompaniment' })}">Accompaniment</router-link>
         <router-link class="button is-drums" active-class="is-primary"    :to="{ name: $route.name, params: Object.assign({}, $route.params, { target: 'drums' })}">Drums</router-link>
@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="column is-narrow">
-      <div class="control">
+      <div class="buttons has-addons">
         <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric: 'SDR' })}">SDR</router-link>
         <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric: 'ISR' })}">ISR</router-link>
         <router-link class="button" active-class="is-primary"             :to="{ name: $route.name, params: Object.assign({}, $route.params, { metric: 'SIR' })}">SIR</router-link>

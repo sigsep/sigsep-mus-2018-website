@@ -6,12 +6,16 @@
         <h2 class="title"><em>{{ title }}</em></h2>
       </div>
       <div class="column is-narrow" ref="playbutton">
-        <span class="control has-addons">
-          <a class="button is-primary is-rounded"
+        <span class="icon">
+          <i class="fa fa-keyboard"></i>
+        </span>
+
+        <span class="buttons has-addons">
+          <a class="button is-success is-outlined"
             v-bind:class="{ 'is-active': isPlaying, 'is-disabled': isLoading }"
             v-on:click='playpause'><span v-bind:class="isPlaying ? 'fa fa-pause' : 'fa fa-play' "></span>
           </a>
-          <a class="button is-rounded"
+          <a class="button is-danger is-outlined"
             v-bind:class="{ 'is-disabled': isLoading }"
             v-on:click='stop'><span class="fa fa-stop"></span></a>
         </span>
@@ -270,9 +274,6 @@ export default {
       font-size: 13px;
       padding-left: 5px; }
     .playlist .controls input[type=range] {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
       display: inline-block;
       width: 75%; }
     .playlist .controls input[type=range]::-webkit-slider-runnable-track {
@@ -288,9 +289,6 @@ export default {
       border-radius: 3px;
       padding: 1px; }
     .playlist .controls input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
       border: none;
       height: 10px;
       width: 10px;

@@ -35,10 +35,6 @@
       </p></p>
         You can click on each rectangle to open the multitrack player. For details about the selected method, click on the "Show Details" button below the player.
     </div>
-    <div>
-      <a href="https://sisec17.audiolabs-erlangen.de/data/sisec_mus_2017_full.csv" class="button is-danger is-outlined">Download all results as CSV</a>
-    </div>
-
   </div>
 
   </section>

@@ -1,10 +1,37 @@
 <template>
   <div id='method'>
     <section>
-       <div>
-         Render Markdown here
-       </div>
- </section>
+      <div>
+        <h1 class="title is-3">
+          <span>{{record.short}}</span>
+          <span class="tag is-dark is-medium" v-if="record.is_blind">
+             Blind Separation
+           </span>
+           <span class="tag is-info is-medium" v-if="record.add_data">
+             Uses additional training data
+            </span>
+         </h1>
+        <h3 class="subtitle">
+          <strong>{{record.authors}}</strong>, {{record.affiliation}}
+        </h3>
+        <p class="control has-addons">
+          <p class="buttons">
+            <a v-if="record.code" :href="record.code" class="button">
+              <span class="icon is-small">
+                <i v-bind:class="gh(record.code) ? 'fa fa-github' : 'fa fa-code' "></i>
+              </span>
+              <span>Code</span>
+            </a>
+            <a v-if="record.website" :href="record.website" class="button">
+              <span class="icon is-small">
+                <i class='fa fa-eye'></i>
+              </span>
+              <span>Website/Demo</span>
+            </a>
+
+          </p>
+        </div>
+    </section>
   </div>
 </template>
 
@@ -14,8 +41,8 @@ import axios from 'axios'
 export default {
   data: function () {
     return {
-      data: null,
-      record: null
+      method: this.short,
+      record: Object
     }
   },
   props: {
@@ -30,8 +57,8 @@ export default {
       }
     }
   },
-  created: function () {
-    this.fetchData(this.short)
+  mounted: function () {
+    this.fetchData(this.method)
   },
   methods: {
     gh: function (string) {
