@@ -1,0 +1,402 @@
+[
+  {
+    "short": "REF",
+    "authors": "MUSDB18",
+    "affiliation": "",
+    "code": "",
+    "website": "",
+    "is_oracle": true,
+    "is_blind": false,
+    "add_data": false
+  },
+  {
+    "short": "2DFT",
+    "authors": "Prem Seetharaman, Fatemeh Pishdadian, Bryan Pardo, Ethan Manilow (implementation author)",
+    "affiliation": "Northwestern University, United States",
+    "code": "https://github.com/interactiveaudiolab/nussl/blob/master/nussl/separation/ft2d.py",
+    "website": "https://interactiveaudiolab.github.io/demos/2dft",
+    "is_oracle": false,
+    "is_blind": true,
+    "add_data": false,
+    "cites": [
+      "Prem Seetharaman, Fatemeh Pishdadian, and Bryan Pardo. Music/voice separation using the 2d fourier transform. In Applications of Signal Processing to Au- dio and Acoustics (WASPAA), 2017 IEEE Workshop on, pages 36–40. IEEE, 2017."
+    ]
+  },
+  {
+    "short": "HEL1",
+    "authors": "Prem Seetharaman, Fatemeh Pishdadian, Bryan Pardo, Ethan Manilow (implementation author)",
+    "affiliation": "Manal Helal, Dominic Ward, Mark Plumply CVSSP, Surrey University, Guildford, UK",
+    "code": "",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": []
+  },
+  {
+    "short": "HPLP",
+    "authors": "Ethan Manilow (Implementation author)",
+    "affiliation": "Northwestern University, United States",
+    "code": "https://github.com/interactiveaudiolab/nussl/blob/master/nussl/separation/high_low_pass_filter.py",
+    "website": "https://github.com/interactiveaudiolab/nussl/blob/master/demos/demo_high_low_pass_filter.py",
+    "is_oracle": false,
+    "is_blind": true,
+    "add_data": false,
+    "cites": []
+  },
+  {
+    "short": "HPSS",
+    "authors": "Derry Fitzgerald, Prem Seetharaman (implementation author), Ethan Manilow (implementation author)",
+    "affiliation": "Cork Institute of Technology, Ireland",
+    "code": "https://github.com/interactiveaudiolab/nussl/blob/master/nussl/separation/hpss.py",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": true,
+    "add_data": false,
+    "cites": [
+      "Fitzgerald, Derry, Harmonic/percussive separation using median filtering. Proc. of. DAFX 2010"
+    ]
+  },
+  {
+    "short": "IBM1",
+    "authors": "Antoine Liutkus, Fabian-Robert Stöter",
+    "affiliation": "Inria and LIRMM, University of Montpellier, France",
+    "code": "https://github.com/sigsep/sigsep-mus-oracle",
+    "website": "",
+    "is_oracle": true,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "A. Liutkus and F.-R. Stöter, The 2018 Signal Separation Evaluation Campaign, Proceedings of LVA/ICA, 2018"
+    ]
+  },
+  {
+    "short": "IBM2",
+    "authors": "Antoine Liutkus, Fabian-Robert Stöter",
+    "affiliation": "Inria and LIRMM, University of Montpellier, France",
+    "code": "https://github.com/sigsep/sigsep-mus-oracle",
+    "website": "",
+    "is_oracle": true,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "A. Liutkus and F.-R. Stöter, The 2018 Signal Separation Evaluation Campaign, Proceedings of LVA/ICA, 2018"
+    ]
+  },
+  {
+    "short": "IRM1",
+    "authors": "Antoine Liutkus, Fabian-Robert Stöter",
+    "affiliation": "Inria and LIRMM, University of Montpellier, France",
+    "code": "https://github.com/sigsep/sigsep-mus-oracle",
+    "website": "",
+    "is_oracle": true,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "A. Liutkus and F.-R. Stöter, The 2018 Signal Separation Evaluation Campaign, Proceedings of LVA/ICA, 2018"
+    ]
+  },
+  {
+    "short": "IRM2",
+    "authors": "Antoine Liutkus, Fabian-Robert Stöter",
+    "affiliation": "Inria and LIRMM, University of Montpellier, France",
+    "code": "https://github.com/sigsep/sigsep-mus-oracle",
+    "website": "",
+    "is_oracle": true,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "A. Liutkus and F.-R. Stöter, The 2018 Signal Separation Evaluation Campaign, Proceedings of LVA/ICA, 2018"
+    ]
+  },
+  {
+    "short": "JY1",
+    "authors": "Jen-Yu Liu, Yi-Hsuan Yang",
+    "affiliation": "Research Center for IT Innovation, Academia Sinica, Taiwan",
+    "code": "https://github.com/ciaua/MusicSourceSeparation",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      ""
+    ]
+  },
+  {
+    "short": "JY2",
+    "authors": "Jen-Yu Liu, Yi-Hsuan Yang",
+    "affiliation": "Research Center for IT Innovation, Academia Sinica, Taiwan",
+    "code": "https://github.com/ciaua/MusicSourceSeparation",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      ""
+    ]
+  },
+  {
+    "short": "JY3",
+    "authors": "Jen-Yu Liu, Yi-Hsuan Yang",
+    "affiliation": "Research Center for IT Innovation, Academia Sinica, Taiwan",
+    "code": "https://github.com/ciaua/MusicSourceSeparation",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      ""
+    ]
+  },
+  {
+    "short": "MDL1",
+    "authors": "Stylianos Ioannis Mimilakis, Konstantinos Drossos²",
+    "affiliation": "Fraunhofer-IDMT, Ilmenau, Germany",
+    "code": "https://github.com/Js-Mim/mss_pytorch",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "S.I. Mimilakis, K. Drossos, T. Virtanen, and G. Schuller: A recurrent encoder-decoder approach with skip-filtering connections for monaural singing voice separation, in Proc. IEEE International Workshop on Machine Learning for Signal Processing (MLSP), September 2017",
+      "S.I. Mimilakis, K. Drossos, J.F. Santos, G. Schuller, T. Virtanen, and Y. Bengio: Monaural singing voice separation with skip-filtering connections and recurrent inference of time-frequency mask, in Proc. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), April 2018"
+    ]
+  },
+  {
+    "short": "MDLT",
+    "authors": "Stylianos Ioannis Mimilakis, Konstantinos Drossos²",
+    "affiliation": "Fraunhofer-IDMT, Ilmenau, Germany",
+    "code": "https://github.com/Js-Mim/mss_pytorch",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "S.I. Mimilakis, K. Drossos, T. Virtanen, and G. Schuller: A recurrent encoder-decoder approach with skip-filtering connections for monaural singing voice separation, in Proc. IEEE International Workshop on Machine Learning for Signal Processing (MLSP), September 2017",
+      "S.I. Mimilakis, K. Drossos, J.F. Santos, G. Schuller, T. Virtanen, and Y. Bengio: Monaural singing voice separation with skip-filtering connections and recurrent inference of time-frequency mask, in Proc. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), April 2018"
+    ]
+  },
+  {
+    "short": "MELO",
+    "authors": "Justin Salamon, Prem Seetharaman (Implementation Author), Ethan Manilow (Implementation Author)",
+    "affiliation": "New York University, United States",
+    "code": "https://github.com/interactiveaudiolab/nussl/blob/master/nussl/separation/melodia.py",
+    "website": "https://www.upf.edu/web/mtg/melodia",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "Salamon, Justin, and Emilia Gómez. Melody extraction from polyphonic music signals using pitch contour characteristics. IEEE Transactions on Audio, Speech, and Language Processing 20.6 (2012): 1759-1770."
+    ]
+  },
+  {
+    "short": "MIX",
+    "authors": "Antoine Liutkus, Fabian-Robert Stöter",
+    "affiliation": "Inria and LIRMM, University of Montpellier, France",
+    "code": "https://github.com/sigsep/sigsep-mus-oracle",
+    "website": "",
+    "is_oracle": true,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "A. Liutkus and F.-R. Stöter, The 2018 Signal Separation Evaluation Campaign, Proceedings of LVA/ICA, 2018"
+    ]
+  },
+  {
+    "short": "REP1",
+    "authors": "Zafar Raffi, Bryan Pardo, Ethan Manilow (implementation author)",
+    "affiliation": "Gracenote, United States",
+    "code": "https://github.com/interactiveaudiolab/nussl/blob/master/nussl/separation/repet.py",
+    "website": "https://interactiveaudiolab.github.io/nussl/getting_started/repet.html",
+    "is_oracle": false,
+    "is_blind": true,
+    "add_data": false,
+    "cites": [
+      "Zafar Rafii and Bryan Pardo. REpeating Pattern Extraction Technique (REPET): A Simple Method for Music/Voice Separation, IEEE Transactions on Audio, Speech, and Language Processing, Volume 21, Issue 1, pp. 71--82, January, 2013."
+    ]
+  },
+  {
+    "short": "REP2",
+    "authors": "Zafar Raffi, Bryan Pardo, Ethan Manilow (implementation author)",
+    "affiliation": "Gracenote, United States",
+    "code": "https://github.com/interactiveaudiolab/nussl/blob/master/nussl/separation/repet.py",
+    "website": "https://interactiveaudiolab.github.io/nussl/getting_started/repet.html",
+    "is_oracle": false,
+    "is_blind": true,
+    "add_data": false,
+    "cites": [
+      "Zafar Rafii and Bryan Pardo. REpeating Pattern Extraction Technique (REPET): A Simple Method for Music/Voice Separation, IEEE Transactions on Audio, Speech, and Language Processing, Volume 21, Issue 1, pp. 71--82, January, 2013."
+    ]
+  },
+  {
+    "short": "RGT1",
+    "authors": "Gerard Roma, Owen Green, Pierre Alexandre Tremblay",
+    "affiliation": "University of Huddersfield, United Kingdom",
+    "code": "https://github.com/flucoma/LVA-ICA-2018/",
+    "website": "http://www.flucoma.org/LVA-ICA-2018/",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "G. Roma, O. Green, P.A. Tremblay, Improving single-network single-channel separation of musical audio with convolutional layers. Proceedings of LVA/ICA, 2018"
+    ]
+  },
+  {
+    "short": "RGT2",
+    "authors": "Gerard Roma, Owen Green, Pierre Alexandre Tremblay",
+    "affiliation": "University of Huddersfield, United Kingdom",
+    "code": "https://github.com/flucoma/LVA-ICA-2018/",
+    "website": "http://www.flucoma.org/LVA-ICA-2018/",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "G. Roma, O. Green, P.A. Tremblay, Improving single-network single-channel separation of musical audio with convolutional layers. Proceedings of LVA/ICA, 2018"
+    ]
+  },
+  {
+    "short": "RPCA",
+    "authors": "Po-Sen Huang, Scott Deeann Chen, Paris Smaragdis, Mark Hasegawa-Johnson, Prem Seetharaman (Implementation Author), Ethan Manilow (Implementation Author)",
+    "affiliation": "University of Huddersfield, United Kingdom",
+    "code": "",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": true,
+    "add_data": false,
+    "cites": [
+      "Huang, Po-Sen, et al. Singing-voice separation from monaural recordings using robust principal component analysis, Acoustics, Speech and Signal Processing (ICASSP)"
+    ]
+  },
+  {
+    "short": "STL1",
+    "authors": "Daniel Stoller, Sebastian Ewert, Simon Dixon",
+    "affiliation": "Queen Mary University London, United Kingdom",
+    "code": "https://github.com/f90/Wave-U-Net",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": true,
+    "cites": [
+      "Stoller, Daniel and Ewert, Sebastian and Dixon, Simon. Wave-U-Net: A multi-scale neural network for end-to-end source separation. Proceedings of the International Society for Music Information Retrieval Conference (ISMIR), 2018."
+    ]
+  },
+  {
+    "short": "STL2",
+    "authors": "Daniel Stoller, Sebastian Ewert, Simon Dixon",
+    "affiliation": "Queen Mary University London, United Kingdom",
+    "code": "https://github.com/f90/Wave-U-Net",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": true,
+    "cites": [
+      "Stoller, Daniel and Ewert, Sebastian and Dixon, Simon. Wave-U-Net: A multi-scale neural network for end-to-end source separation. Proceedings of the International Society for Music Information Retrieval Conference (ISMIR), 2018."
+    ]
+  },
+  {
+    "short": "TAK1",
+    "authors": "Naoya Takahashi, Nabarun Goswami, Yuki Mitsufuji",
+    "affiliation": "Sony Corporation, Tokyo, Japan",
+    "code": "",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "N. Takahashi, N. Goswami and Y. Mitsufuji: MMDenseLSTM: an efficient two way modeling for audio source separation, 2018"
+    ]
+  },
+  {
+    "short": "TAK2",
+    "authors": "Naoya Takahashi, Nabarun Goswami, Yuki Mitsufuji",
+    "affiliation": "Sony Corporation, Tokyo, Japan",
+    "code": "",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": true,
+    "cites": [
+      "N. Takahashi, N. Goswami and Y. Mitsufuji: MMDenseLSTM: an efficient two way modeling for audio source separation, 2018"
+    ]
+  },
+  {
+    "short": "TAK3",
+    "authors": "Naoya Takahashi, Nabarun Goswami, Yuki Mitsufuji",
+    "affiliation": "Sony Corporation, Tokyo, Japan",
+    "code": "",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": true,
+    "cites": [
+      "N. Takahashi and Y. Mitsufuji: Multi-scale multi-band DenseNets for audio source separation, Proc. WASPAA, 2017"
+    ]
+  },
+  {
+    "short": "TAU1",
+    "authors": "Naoya Takahashi, Stefan Uhlich, Franck Giron, Michael Enenkl, Thomas Kemp, Nabarun Goswami, Yuki Mitsufuji",
+    "affiliation": "Sony Corporation, Tokyo, Japan",
+    "code": "",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": true,
+    "cites": [
+      "S. Uhlich, M. Porcu, F. Giron, M. Enenkl, T. Kemp, N. Takahashi and Y. Mitsufuji: Improving music source separation based on deep neural networks through data augmentation and network blending, Proc. ICASSP, 2017",
+      "N. Takahashi and Y. Mitsufuji: Multi-scale multi-band DenseNets for audio source separation, Proc. WASPAA, 2017"
+    ]
+  },
+  {
+    "short": "UHL1",
+    "authors": "Stefan Uhlich, Franck Giron, Michael Enenkl, Thomas Kemp, Naoya Takahashi, Yuki Mitsufuji",
+    "affiliation": "Sony European Technology Center, Stuttgart, Germany",
+    "code": "",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "S. Uhlich, M. Porcu, F. Giron, M. Enenkl, T. Kemp, N. Takahashi and Y. Mitsufuji. Improving music source separation based on deep neural networks through data augmentation and network blending, Proc. ICASSP, 2017"
+    ]
+  },
+  {
+    "short": "UHL2",
+    "authors": "Stefan Uhlich, Franck Giron, Michael Enenkl, Thomas Kemp, Naoya Takahashi, Yuki Mitsufuji",
+    "affiliation": "Sony European Technology Center, Stuttgart, Germany",
+    "code": "",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "S. Uhlich, M. Porcu, F. Giron, M. Enenkl, T. Kemp, N. Takahashi and Y. Mitsufuji. Improving music source separation based on deep neural networks through data augmentation and network blending, Proc. ICASSP, 2017"
+    ]
+  },
+  {
+    "short": "UHL3",
+    "authors": "Stefan Uhlich, Franck Giron, Michael Enenkl, Thomas Kemp, Naoya Takahashi, Yuki Mitsufuji",
+    "affiliation": "Sony European Technology Center, Stuttgart, Germany",
+    "code": "",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": true,
+    "cites": [
+      "S. Uhlich, M. Porcu, F. Giron, M. Enenkl, T. Kemp, N. Takahashi and Y. Mitsufuji. Improving music source separation based on deep neural networks through data augmentation and network blending, Proc. ICASSP, 2017"
+    ]
+  },
+  {
+    "short": "WK",
+    "authors": "Dominic Ward, Qiuqiang Kong",
+    "affiliation": "Sony European Technology Center, Stuttgart, Germany",
+    "code": "https://github.com/CVSSP/WK-sisec-mus-2018",
+    "website": "",
+    "is_oracle": false,
+    "is_blind": false,
+    "add_data": false,
+    "cites": [
+      "S. Uhlich, M. Porcu, F. Giron, M. Enenkl, T. Kemp, N. Takahashi and Y. Mitsufuji. Improving music source separation based on deep neural networks through data augmentation and network blending, Proc. ICASSP, 2017",
+      "Weninger, F., Hershey, J.R., Roux, J.L., & Schuller, B.W. (2014). Discriminatively trained recurrent neural networks for single-channel speech separation. 2014 IEEE Global Conference on Signal and Information Processing (GlobalSIP)"
+    ]
+  }
+]
