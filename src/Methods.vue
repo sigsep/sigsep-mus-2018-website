@@ -8,25 +8,25 @@
           <th>Authors</th>
           <th>Affiliation</th>
           <th>Blind
-            <span class="icon has-text-info">
-              <i class="fa fa-info-circle"></i>
-            </span>
           </th>
-          <th>Additional Training</th>
+          <th><abbr title="Additional Training Data">Add. Data</abbr></th>
           <th>Code/Website</th>
         </tr>
       </thead>
       <tbody v-for="record in data" :key="record.short">
       <tr>
         <td>
-          <router-link
+          <router-link class="button is-small"
             active-class="is-primary"
             :to="{ name: 'method', params: { short: record.short}}"
-          >{{record.short}}
+          ><span class="icon" v-if="record.is_oracle">
+              <i class="fa fa-magic"></i>
+            </span>
+            {{record.short}}
           </router-link>
         </td>
-        <td>{{record.authors}}</td>
-        <td>{{record.affiliation}}</td>
+        <td>{{record.authors | truncate(40) }}</td>
+        <td>{{record.affiliation | truncate(40)}}</td>
         <td>
           <span class="icon" v-if="record.is_blind">
             <i class="fa fa-check"></i>
@@ -59,6 +59,7 @@
 
 <script>
 import axios from 'axios'
+import fontawesome from 'font-awesome/css/font-awesome.min.css'
 
 export default {
   data: function () {
@@ -68,10 +69,10 @@ export default {
   },
   filters: {
     truncate: function (string, value) {
-      if (string) {
+      if (string.length >= value) {
         return string.substring(0, value) + '...'
       } else {
-        return ''
+        return string
       }
     }
   },
@@ -91,6 +92,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "~bulmaswatch/darkly/_variables.scss";
+@import "~bulma";
+@import "~bulmaswatch/darkly/_overrides.scss";
+</style>
 
 <style media="screen">
 </style>

@@ -1,13 +1,13 @@
 [
   {
     "short": "REF",
-    "authors": "",
+    "authors": "MUSDB18",
     "affiliation": "",
     "code": "",
     "website": "",
     "is_oracle": true,
     "is_blind": false,
-    "add_data": false,
+    "add_data": false
   },
   {
     "short": "2DFT",

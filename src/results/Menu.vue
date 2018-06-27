@@ -30,6 +30,12 @@ export default {
 }
 </script>
 
+<style lang="scss">
+@import "~bulmaswatch/darkly/_variables.scss";
+@import "~bulma";
+@import "~bulmaswatch/darkly/_overrides.scss";
+</style>
+
 <style media="screen">
 
 .button.is-vocals.is-primary,
