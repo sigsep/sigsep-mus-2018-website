@@ -32,30 +32,21 @@
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title">The 2016 Signal Separation Evaluation Campaign</p>
+        <p class="modal-card-title">The 2018 Signal Separation Evaluation Campaign</p>
         <button class="delete" v-on:click="toggleCite"></button>
       </header>
       <section class="modal-card-body" v-bind:class="{ 'bibtex': showBibtex }" >
         <div v-if="!showBibtex">
-          Antoine Liutkus, Fabian-Robert Stöter, Zafar Rafii, Daichi Kitamura,</br>
-          Bertrand Rivet, Nobutaka Ito, Nobutaka Ono, and Julie Fontecave </br>
-          13th International Conference on Latent Variable Analysis and Signal Separation (LVA/ICA 2017)</br>
+          Fabian-Robert Stöter, Antoine Liutkus, Nobutaka Ito</br>
+          14th International Conference on Latent Variable Analysis and Signal Separation (LVA/ICA 2018)</br>
         </div>
-        <pre v-if="showBibtex">@inproceedings{
-  SiSEC17,
-  Title = {The 2016 Signal Separation Evaluation Campaign},
-  Author = {
-      Liutkus, Antoine and St{\"o}ter, Fabian-Robert and
-      Rafii, Zafar and Kitamura, Daichi and
-      Rivet, Bertrand and Ito, Nobutaka and
-      Ono, Nobutaka and Fontecave, Julie},
-  booktitle = {
-    Latent Variable Analysis and Signal Separation:
-    13th International Conference, LVA/ICA 2017, Grenoble, France},
-  Pages = {323--332},
-  Publisher = {Springer International Publishing},
-  Year = {2017},
-  2017, Proceedings}
+        <pre v-if="showBibtex">@InProceedings{SiSEC18,
+  author="St{\"o}ter, Fabian-Robert and Liutkus, Antoine and Ito, Nobutaka",
+  title="The 2018 Signal Separation Evaluation Campaign",
+  booktitle="Latent Variable Analysis and Signal Separation:
+  14th International Conference, LVA/ICA 2018, Surrey, UK",
+  year="2018",
+  pages="293--305"
 }</pre>
       </section>
       <footer class="modal-card-foot">
@@ -65,7 +56,7 @@
           </span>
           <span>BibTex</span>
         </a>
-        <a class="button" href="mailto:antoine.liutkus@inria.fr">
+        <a class="button" href="mailto:fabian-robert.stoter@inria.fr">
           <span class="icon">
              <i class="fa fa-envelope"></i>
           </span>

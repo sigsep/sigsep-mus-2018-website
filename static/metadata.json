@@ -1,8 +1,8 @@
 [
   {
     "short": "REF",
-    "authors": "MUSDB18",
-    "affiliation": "",
+    "authors": "ground truth sources",
+    "affiliation": "MUSDB18",
     "code": "",
     "website": "",
     "is_oracle": true,

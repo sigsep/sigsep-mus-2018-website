@@ -1,6 +1,6 @@
 <template>
   <section>
-      <h1 id='title' class="title is-2">About SiSEC MUS 2016</h1>
+      <h1 id='title' class="title is-2">About SiSEC MUS 2018</h1>
 
     <div class="content">
       <h1 class='title'>Authors of this website</h1>
@@ -8,41 +8,29 @@
       <div class="media-content">
         <div class="content">
           <p>
-            <a href="https://www.audiolabs-erlangen.de/fau/assistant/stoeter"><strong>Fabian-Robert Stöter</strong></a>, International Audio Laboratories Erlangen
+            <a href="https://faroit.com"><strong>Fabian-Robert Stöter</strong></a>, INRIA and LIRMM, Montpellier
             <br>
-            <a href="https://github.com/faroit/dsdtools">dsdtools</a>, Statistical Evaluation, Website
+            MUS Task leader, Statistical Evaluation, Website
             <br>
           </p>
         </div>
       </div>
     </article>
-    <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <a href="https://www.audiolabs-erlangen.de/fau/assistant/werner"><strong>Nils Werner</strong></a>, International Audio Laboratories Erlangen
-          <br>
-            masters the modern web (vue.js, webpack...). This site would look and feel like from 1999 without him.
-          <br>
-        </p>
-      </div>
-    </div>
-  </article>
   <article class="media">
   <div class="media-content">
     <div class="content">
       <p>
-        <a href="https://members.loria.fr/ALiutkus/"><strong>Antoine Liutkus</strong></a>, INRIA Nancy - Grand Est
+        <a href="https://members.loria.fr/ALiutkus/"><strong>Antoine Liutkus</strong></a>, INRIA and LIRMM, Montpellier
         <br>
-          Organizer of 2016 SiSEC.
+          SiSEC Chair
         <br>
       </p>
     </div>
   </div>
   </article>
     </div>
-    <div class="content">
-      <h1 class='title'>Sisec Software</h1>
+    <!-- <div class="content">
+      <h1 class='title'>SiSEC Software</h1>
       <ul>
         <li><a href="https://github.com/faroit/sisec-mus-website">
           <span><i class="fa fa-github"></i></span>
@@ -79,7 +67,7 @@
         <li><a href="https://vuejs.org/">vue.js</a></li>
         <li><a href="https://github.com/naomiaro/waveform-playlist">waveform-playlist</a></li>
       </ul>
-    </div>
+    </div> -->
 
   </section>
 </template>

@@ -18,11 +18,11 @@
         <td>
           <router-link class="button is-small"
             active-class="is-primary"
-            :to="{ name: 'method', params: { short: record.short}}"
-          ><span class="icon" v-if="record.is_oracle">
+            :to="{ name: 'description', params: { short: record.short}}"
+          ><span class="icon oracle" v-if="record.is_oracle">
               <i class="fa fa-magic"></i>
             </span>
-            {{record.short}}
+            <span>{{record.short}}</span>
           </router-link>
         </td>
         <td>{{record.authors | truncate(40) }}</td>
@@ -97,6 +97,10 @@ export default {
 @import "~bulmaswatch/darkly/_variables.scss";
 @import "~bulma";
 @import "~bulmaswatch/darkly/_overrides.scss";
+
+.oracle {
+  margin-right: 1em;
+}
 </style>
 
 <style media="screen">

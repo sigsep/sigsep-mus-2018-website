@@ -5,7 +5,7 @@
       The participants were asked to provide estimates for the separated targets
       for all mixtures. The quality of these estimates was then evaluated by
       comparison with the true source images using four objective
-      performance criteria. For more information about the evaluation metrics see <a href='http://bass-db.gforge.inria.fr/bss_eval/'>BSSeval</a>.
+      performance criteria. For more information about the evaluation metrics see or python based evaluation tool <a href='https://sigsep.github.io/sigsep-mus-eval/museval.metrics.html'>BSSeval v4</a>.
     </div>
       <span><scale-loader :color="loaderColor" :size="loaderHeight" :loading="isLoading"></scale-loader></span>
       <div id="d3container" v-bind:class="{ 'hide': isLoading }" data-balloon="Click on any square to start playback" data-balloon-pos="top" >
@@ -34,6 +34,10 @@
       You can use the selections below the heatmap to filter the results by <b>target source</b>, <b>metric</b> or if the track belongs to the <b>test or train data</b>.
       </p></p>
         You can click on each rectangle to open the multitrack player. For details about the selected method, click on the "Show Details" button below the player.
+    </div>
+    <div class="content">
+      https://github.com/sigsep/sigsep-mus-2018
+
     </div>
   </div>
 

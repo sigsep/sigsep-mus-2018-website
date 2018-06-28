@@ -1,46 +1,34 @@
 <template>
   <div class="hero-body">
-      <div class="container">
+      <div class="content">
         <section>
           <h1 class="title is-2">The MUSDB18 Dataset</h1>
           <div class="columns">
             <div class="column is-half">
+              <a href="https://doi.org/10.5281/zenodo.1117372"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1117372.svg" alt="DOI"></a>
+
               <img src="./assets/hero.svg" width="512" alt="Description">
+
             </div>
 
             <div class="column">
-              The Demixing Secrets Dataset 100 (DSD100) consists of a total of
-              100 full-track songs of different styles and includes the
-              mixtures and four original sources/stems. </br>
-
-              <p>
-                The stems for MSD100 were created from sources downloaded
-                from the <a href="http://www.cambridge-mt.com/ms-mtk.htm">
-                ‘Mixing Secrets’ Free Multitrack Download Library.</a>
-                We would like to thank Mike Senior, not only for giving
-                us the permission to use this multitrack material, but also
-                for maintaining such resources for the audio community.
-              </p>
-              <p>
-                The dataset is evenly split divided between a development
-                (<i>Dev</i>) subset and a test (<i>Test</i>) subset. Methods
-                that are using supervised learning, do not use the Test data during
-                training.
-                The <a href="#/Methods">participants</a> are asked to develop a
-                separation function and return the estimated sources and the performance
-                results, and send us back the performance results.
-              </p>
-              <p>
-                The complete dataset is freely available. For testing we
-                provide a small subset of the DSD100.
-                It has the same file and folder structure as well as the
-                same audio file formats but consists of only 4 tracks of
-                30s each.
-              </p>
+              The musdb18 is a dataset of 150 full lengths music tracks (~10h duration) of different styles along with their isolated drums, bass, vocals and others stems.
+            <p>
+              musdb18 contains two subset, one with training data, composed of 100 songs, and a test set composed of 50 songs. Supervised approaches should be trained on the training set and tested on both sets.
+            </p>
+            <p>
+              All files from the musdb18 dataset are encoded in the Native Instruments stems format (.mp4). It is a multitrack format composed of 5 stereo streams, each one encoded in AAC @256kbps. These signals correspond to:
+            </p>
+            <ul>
+              <li>Mixture</li>
+              <li>Drums</li>
+              <li>Bass</li>
+              <li>Other (rest of the accompaniment)</li>
+              <li>Vocals</li>
+            </ul>
               <br/>
                 <div class="block">
-                  <a href="http://liutkus.net/DSD100.zip" class="button is-danger is-outlined">Download DSD100 (14 GB)</a>
-                  <a href="https://www.loria.fr/~aliutkus/DSD100subset.zip" class="button is-primary is-outlined">Download Subset (120 MB)</a>
+                  <a href="https://sigsep.github.io/datasets/musdb.html" class="button is-danger is-outlined">MUSDB18 Dataset Website</a>
                 </div>
                 <br/>
             </div>

@@ -68,16 +68,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import "~bulmaswatch/darkly/_variables.scss";
-@import "~bulma";
-@import "~bulmaswatch/darkly/_overrides.scss";
-</style>
-
 <style>
 
 .footer {
-  background-color: #191919;
+  background-color: #191919!important;
 }
 
 .logo {

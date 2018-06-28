@@ -11,6 +11,7 @@ import Player from './player/Player.vue'
 import About from './About.vue'
 import Methods from './Methods.vue'
 import Method from './Method.vue'
+import Description from './Description.vue'
 import Dataset from './Dataset.vue'
 import Home from './Home.vue'
 
@@ -34,7 +35,7 @@ const router = new VueRouter({
         { path: 'results/:target/:metric/play/:track_id/:method', name: 'player', component: Results },
         { path: 'about', component: About },
         { path: 'methods', component: Methods },
-        { path: 'methods/:short', name: 'method', component: Method, props: true},
+        { path: 'methods/:short', name: 'description', component: Description, props: true},
         { path: 'dataset', component: Dataset },
       ]
     },
