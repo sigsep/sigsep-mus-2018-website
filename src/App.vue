@@ -27,7 +27,7 @@
    <div class="container">
      <div class="content has-text-centered">
        <p>
-         Organized by:
+         <span class="is-size-7 footerdesc">Organized by</span>
          <span class="logo">
            <a href="http://www.inria.fr">
              <img src="./assets/logo_INRIA.png" alt="Inria" width="180px">
@@ -38,8 +38,8 @@
              <img src="./assets/logo_lirmm.svg" alt="LIRMM" width="70px">
            </a>
          </span>
-         <span class="logo">
-           Sponsored by:
+         <span class="logo org">
+           <span class="is-size-7 footerdesc">Sponsored by</span>
            <a href="http://www.native-instruments.com">
              <img src="./assets/logo_ni.svg" alt="LIRMM" width="80px">
            </a>
@@ -69,6 +69,10 @@ export default {
 </script>
 
 <style>
+
+.footerdesc {
+  position: absolute;
+}
 
 .footer {
   background-color: #191919!important;
