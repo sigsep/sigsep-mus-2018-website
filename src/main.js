@@ -29,7 +29,7 @@ const router = new VueRouter({
         { path: '', component: Home },
         { path: 'listen', redirect: { name: 'listen', params: { track: 'AM Contra - Heart Peripheral', method: 'REF' }}, props: (route) => ({ mode: route.query.mode })},
         { path: 'listen/:track/:method', name: 'listen', component: Listen},
-        { path: 'compare/:track/:method', name: 'compare', component: Compare},
+        { path: 'compare/:track/:target', name: 'compare', component: Compare},
         { path: 'results', redirect: { name: 'results', params: {target: 'vocals', metric: 'SDR' } } },
         { path: 'results/:target/:metric', name: 'results', component: Results },
         { path: 'results/:target/:metric/play/:track_id/:method', name: 'player', component: Results },

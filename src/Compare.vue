@@ -13,17 +13,17 @@
                 </option>
               </select>
             </span>
-      </p>
+          </p>
         </div>
         <div class="column is-narrow">
           <div class="control-label">
-            <label class="label">Select Method</label>
+            <label class="label">Select Target</label>
           </div>
           <div class="control">
             <span class="select">
-              <select v-model="selectedMethod">
-                <option v-for="method in availableMethods" v-bind:value="method.name" v-bind:key="method.name">
-                  {{ method.name }}
+              <select v-model="selectedTarget">
+                <option v-for="target in availableTargets" v-bind:value="target" v-bind:key="target">
+                  {{ target }}
                 </option>
               </select>
             </span>
@@ -33,11 +33,24 @@
     <transition name="slide-fade">
       <div v-if="tracklist.length > 0">
           <div class="container">
-            <player :urls="tracklist" :title="selectedTrack" :method='method'></player>
+            <player :urls="tracklist" :title="selectedTrack"></player>
         </div>
       </div>
     </transition>
-    <method v-if="!embed" :short='selectedMethod'></method>
+    <div class="column is-narrow">
+      <div class="control-label">
+        <label class="label">Add Method</label>
+      </div>
+      <div class="control">
+        <span class="select">
+          <select v-model="selectedMethod">
+            <option v-for="method in availableMethods" v-bind:value="method" v-bind:key="method">
+              {{ method }}
+            </option>
+          </select>
+        </span>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -57,9 +70,11 @@ export default {
     return {
       data: [],
       tracks: [],
-      availableMethods: [],
-      selectedMethod: '-1',
-      selectedTarget: '',
+      availableMethods: ['REF'],
+      availableTargets: [],
+      trackstoload: [],
+      selectedMethod: 'REF',
+      selectedTarget: 'vocals',
       selectedTrack: '',
       isLoading: true,
       loaderColor: 'orange',
@@ -68,19 +83,7 @@ export default {
   },
   created: function () {
     this.isLoading = true
-    this.availableMethods.push(
-      {
-        'name': 'REF'
-      }
-    )
-    for (let method of headers.methods) {
-      this.availableMethods.push(
-        {
-          'name': method
-        }
-      )
-    }
-    this.selectedMethod = this.$route.params.method
+    this.availableTargets = headers.targets
     this.selectedTrack = this.$route.params.track
   },
   updated: function () {
@@ -93,20 +96,29 @@ export default {
     this.tracks = headers.tracks
   },
   methods: {
-    updateMethod: function () {
-      this.selectedMethod = this.$route.params.method
+    updateTarget: function () {
+      this.selectedTarget = this.$route.params.target
+      this.availableMethods = []
+      var filterByTarget = this.data.filter(function(d) {
+        return (
+          d.track_id == headers.tracks.indexOf(this.selectedTrack) &&
+          d.target_id == headers.targets.indexOf(this.selectedTarget) &&
+          d.metric_id == 2
+        );
+      }.bind(this));
+      for (let row of filterByTarget) {
+        console.log(row)
+        this.availableMethods.push(headers.methods.indexOf(row.method_id))
+      }
     },
     updateTrack: function () {
       this.selectedTrack = this.$route.params.track
     },
-    updateURLforMethod: function () {
-      this.$router.push({params: {method: this.selectedMethod}})
+    updateURLforTarget: function () {
+      this.$router.push({params: {target: this.selectedTarget}})
     },
     updateURLforTrack: function () {
       this.$router.push({params: {track: this.selectedTrack}})
-    },
-    toggleMode: function (d) {
-      this.decompose = !this.decompose
     }
   },
   computed: {
@@ -117,100 +129,42 @@ export default {
         return false
       }
     },
-    method: function () {
-      for (let method of this.availableMethods) {
-        if (method.name === this.selectedMethod) {
-          return method.name
-        }
-      }
-    },
     tracklist: function () {
-      var trackstoload = []
-      if (this.$route.params.method === 'REF') {
-        trackstoload.push(
-          { 'name': 'Mixture',
-            'customClass': 'mix',
-            'solo': true,
-            'mute': true,
-            'file': [
-              'REF', 'test',
-              this.selectedTrack,
-              'mixture'
-            ].join('/') + '.m4a'
-          }
-        )
 
-        for (let target of headers.targets) {
-          var isAccompaniment
-          if (target === 'accompaniment') {
-            isAccompaniment = true
-          } else {
-            isAccompaniment = false
-          }
-          trackstoload.push({
-            'name': target,
-            'customClass': target,
-            'solo': false,
-            'mute': isAccompaniment,
-            'file': [
-              'REF', 'test',
-              this.selectedTrack,
-              target
-            ].join('/') + '.m4a'
-          })
-        }
-      } else {
-        var filterByMethod = this.data.filter(function (d) {
-          return (
-            d.track_id == headers.tracks.indexOf(this.selectedTrack) &&
-            d.method_id == headers.methods.indexOf(this.selectedMethod) &&
-            d.metric_id == 2
-          )
-        }.bind(this))
-        if (!filterByMethod.length) {
-          return []
-        }
 
-        trackstoload.push(
-          { 'name': 'Mixture',
-            'customClass': 'mix',
-            'solo': true,
-            'mute': true,
-            'file': [
-              'REF', 'test',
-              this.selectedTrack,
-              'mixture'
-            ].join('/') + '.m4a'
-          }
-        )
+      // this.trackstoload.push(
+      //   { 'name': 'Mixture',
+      //     'customClass': 'mix',
+      //     'solo': true,
+      //     'mute': true,
+      //     'file': [
+      //       'REF', 'test',
+      //       this.selectedTrack,
+      //       'mixture'
+      //     ].join('/') + '.m4a'
+      //   }
+      // )
 
-        for (let track of filterByMethod) {
-          if (headers.targets[track.target_id] === 'accompaniment') {
-            isAccompaniment = true
-          } else {
-            isAccompaniment = false
-          }
-          trackstoload.push(
-            { 'name': headers.targets[track.target_id],
-              'customClass': headers.targets[track.target_id],
-              'solo': false,
-              'mute': isAccompaniment,
-              'file': [
-                headers.methods[track.method_id], 'test',
-                this.selectedTrack,
-                headers.targets[track.target_id]
-              ].join('/') + '.m4a'
-            }
-          )
+      this.trackstoload.push(
+        { 'name': this.selectedMethod,
+          'customClass': 'mix',
+          'solo': false,
+          'mute': false,
+          'file': [
+            this.selectedMethod, 'test',
+            this.selectedTrack,
+            this.selectedTarget
+          ].join('/') + '.m4a'
         }
-      }
-      return trackstoload
+      )
+
+      return this.trackstoload
     }
   },
   watch: {
-    '$route.params.method': 'updateMethod',
+    '$route.params.target': 'updateTarget',
     '$route.params.track': 'updateTrack',
-    'selectedMethod': 'updateURLforMethod',
+    'selectedTarget': 'updateURLforTarget',
     'selectedTrack': 'updateURLforTrack'
   }
 }
