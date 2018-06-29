@@ -20,7 +20,7 @@
     <transition name="slide-fade">
       <div v-if="tracklist.length > 0">
           <div class="container">
-            <player :urls="tracklist" :title="title" :method='method'></player>
+            <player :urls="tracklist" :title="title"></player>
           </div>
           <div class='column has-text-right'>
             <router-link class='button is-danger' :to="{ name: 'listen', params: { track: this.tracks[this.$route.params.track_id], method: this.$route.params.method }}">
@@ -86,7 +86,6 @@ export default {
     plot.init()
 
     d3.csv("/static/scores.csv").then((data) => {
-      console.log(data)
       this.data = data
       this.update()
     })
@@ -107,9 +106,6 @@ export default {
   computed: {
     title: function() {
       return this.tracks[this.$route.params.track_id]
-    },
-    method: function() {
-      return this.$route.params.method
     },
     subset: function() {
       return this.data.filter(function(d) {

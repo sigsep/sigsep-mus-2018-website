@@ -33,7 +33,7 @@
     <transition name="slide-fade">
       <div v-if="tracklist.length > 0">
           <div class="container">
-            <player :urls="tracklist" :title="selectedTrack" :method='method'></player>
+            <player :urls="tracklist" :title="selectedTrack"></player>
         </div>
       </div>
     </transition>
@@ -114,13 +114,6 @@ export default {
         return true
       } else {
         return false
-      }
-    },
-    method: function () {
-      for (let method of this.availableMethods) {
-        if (method.name === this.selectedMethod) {
-          return method.name
-        }
       }
     },
     tracklist: function () {

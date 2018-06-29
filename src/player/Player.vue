@@ -45,7 +45,6 @@ export default {
   props: {
     urls: Array,
     title: '',
-    method: ''
   },
   data: function () {
     return {
