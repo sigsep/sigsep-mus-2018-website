@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-end navbar-menu">
+  <div class="navbar-end navbar-menu" :class="{ 'is-active': isActive }">
       <router-link class="navbar-item is-tab" :to="{ path: '/dataset' }">Dataset</router-link>
       <router-link class="navbar-item is-tab" :to="{ path: '/methods' }">Methods</router-link>
       <router-link class="navbar-item is-tab" :to="{ path: '/results' }">Results</router-link>
@@ -73,6 +73,9 @@ import bulma from 'bulma/css/bulma.css';
 import fontawesome from 'font-awesome/css/font-awesome.min.css';
 
 export default {
+  props: {
+    isActive: Boolean
+  },
   data: function () {
     return {
       showCite: false,

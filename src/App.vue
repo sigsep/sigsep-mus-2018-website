@@ -9,10 +9,13 @@
                <a class="navbar-item" href="/">
                 <img src="/static/favicon.png" alt="SISEC"><h1 class="title is-5">SiSEC MUS 2018</h1>
                </a>
-               <div class="navbar-menu">
-                 <main-menu></main-menu>
-               </div>
+               <a role="button" class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }" aria-label="menu" aria-expanded="false">
+                 <span aria-hidden="true"></span>
+                 <span aria-hidden="true"></span>
+                 <span aria-hidden="true"></span>
+               </a>
              </div>
+            <main-menu :isActive="showNav"></main-menu>
          </nav>
        </div>
      </div>
@@ -56,6 +59,11 @@ import MainMenu from './Menu.vue'
 
 export default {
   components: { MainMenu },
+  data: function () {
+    return {
+      showNav: false
+    }
+  },
   computed: {
     embed: function() {
       if (this.$route.query.mode == "embed") {
