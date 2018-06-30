@@ -33,7 +33,8 @@ We used the `train` part of `musdb` and an internal database with 804 songs as d
 perform early stopping and hyperparameter selection (growth rate,
 number of layers).
 
-<img src="./MDenseLSTM.png">  
+![](/static/descriptions/TAK2/MDenseLSTM.png)
+
 Figure 1. MDenseLSTM architecture (scale=3). A LSTM layer is added to the bottleneck DenseBlock of MDenseNet[1].
 
 ## References

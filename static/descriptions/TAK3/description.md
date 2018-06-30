@@ -32,9 +32,9 @@ We used the `train` part of `musdb` and an internal database with 804 songs as d
 perform early stopping and hyperparameter selection (growth rate,
 number of layers).
 
-<img src="./MDenseNet.png">  
+![](/static/descriptions/TAK3/MDenseLSTM.png)
 
-<img src="./MMDenseNet.png">
+![](/static/descriptions/TAK3/MMDenseLSTM.png)
 
 ## References
 1. N. Takahashi and Y. Mitsufuji: Multi-scale multi-band DenseNets for audio source separation, Proc. WASPAA, 2017

@@ -28,6 +28,8 @@ var svgLegendText
 var lgstop1
 var lgstop2
 
+var yScale
+var yAxis
 var current_target
 var current_metric
 var current_play_track_id
@@ -67,8 +69,9 @@ function init() {
   // grid is defined by maximum number of tracks = 50
   gridSize = width / 50,
     h = gridSize,
-    w = gridSize,
-    height = gridSize * headers.methods.length;   // height is defined by maximum number of methods
+    w = gridSize;
+
+  height = gridSize * headers.methods.length;   // height is defined by maximum number of methods
 
 
   method_scale = d3.scaleBand()
@@ -238,7 +241,11 @@ function rect(data) {
 
 }
 
+//  ===============================================================
+//  UPDATE
+//  ===============================================================
 function update(data) {
+
   // Set color scale
   colorLow = 'black', colorHigh = colors[current_target];
 
@@ -424,12 +431,17 @@ function update(data) {
     .attr("y", d3.extent(method_scale.range())[0])
     .attr("height", d3.extent(method_scale.range())[1]);
 
-  var yScale = d3.scaleLinear()
-  	 .range([parseInt(svgLegendRect.attr('height')), parseInt(svgLegendRect.attr('y'))])
+  yScale = d3.scaleLinear()
+  	 .range(
+        [
+          parseInt(svgLegendRect.attr('height')),
+          parseInt(svgLegendRect.attr('y'))
+        ]
+      )
   	 .domain(colorScale.domain());
 
   //Define x-axis
-  var yAxis = d3.axisRight()
+  yAxis = d3.axisRight()
   	  .ticks(10)
   	  .scale(yScale);
 
