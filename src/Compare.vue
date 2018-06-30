@@ -33,7 +33,7 @@
     <transition name="slide-fade">
       <div v-if="tracklist.length > 0">
           <div class="container">
-            <player :urls="tracklist" :title="selectedTrack"></player>
+            <player ref="mplayer" :urls="tracklist" :title="selectedTrack"></player>
         </div>
       </div>
     </transition>
@@ -49,6 +49,16 @@
             </option>
           </select>
         </span>
+        <a class="button" @click="addTrack">
+          <span class="icon">
+            <i class='fa fa-plus'></i>
+          </span>
+        </a>
+        <a class="button" @click="clear">
+          <span class="icon is-danger">
+            <i class='fa fa-trash'></i>
+          </span>
+        </a>
       </div>
     </div>
   </section>
@@ -70,12 +80,12 @@ export default {
     return {
       data: [],
       tracks: [],
-      availableMethods: ['REF'],
+      availableMethods: [],
       availableTargets: [],
       trackstoload: [],
       selectedMethod: 'REF',
-      selectedTarget: 'vocals',
-      selectedTrack: '',
+      selectedTarget: '',
+      selectedTrack: 'AM Contra - Heart Peripheral',
       isLoading: true,
       loaderColor: 'orange',
       loaderHeight: '26px'
@@ -84,7 +94,6 @@ export default {
   created: function () {
     this.isLoading = true
     this.availableTargets = headers.targets
-    this.selectedTrack = this.$route.params.track
   },
   updated: function () {
     this.isLoading = false
@@ -94,10 +103,23 @@ export default {
       this.data = data
     })
     this.tracks = headers.tracks
+    this.updateTarget()
   },
   methods: {
     updateTarget: function () {
-      this.selectedTarget = this.$route.params.target
+      this.selectedTrack = this.$route.params.track
+      this.trackstoload = [
+        { 'name': 'Mixture',
+          'customClass': 'mix',
+          'solo': true,
+          'mute': true,
+          'file': [
+            'REF', 'test',
+            this.selectedTrack,
+            'mixture'
+          ].join('/') + '.m4a'
+      }]
+
       this.availableMethods = []
       var filterByTarget = this.data.filter(function(d) {
         return (
@@ -105,17 +127,42 @@ export default {
           d.target_id == headers.targets.indexOf(this.selectedTarget) &&
           d.metric_id == 2
         );
-      }.bind(this));
+      }.bind(this))
       for (let row of filterByTarget) {
-        console.log(row)
-        this.availableMethods.push(headers.methods.indexOf(row.method_id))
+        this.availableMethods.push(headers.methods[row.method_id])
+      }
+      if (!filterByTarget.length) {
+        this.trackstoload = []
+      } else {
+        this.trackstoload.push(
+          { 'name': 'GT ' + this.selectedTarget,
+            'customClass': 'mix',
+            'solo': false,
+            'mute': false,
+            'file': [
+              'REF', 'test',
+              this.selectedTrack,
+              this.selectedTarget
+            ].join('/') + '.m4a'
+        })
       }
     },
-    updateTrack: function () {
-      this.selectedTrack = this.$route.params.track
+    addTrack: function () {
+      this.$refs.mplayer.addTrack(
+        { 'name': this.selectedMethod,
+          'customClass': 'mix',
+          'solo': false,
+          'mute': false,
+          'file': [
+            this.selectedMethod, 'test',
+            this.selectedTrack,
+            this.selectedTarget
+          ].join('/') + '.m4a'
+        }
+      )
     },
-    updateURLforTarget: function () {
-      this.$router.push({params: {target: this.selectedTarget}})
+    clear: function () {
+      this.updateTarget()
     },
     updateURLforTrack: function () {
       this.$router.push({params: {track: this.selectedTrack}})
@@ -130,42 +177,13 @@ export default {
       }
     },
     tracklist: function () {
-
-
-      // this.trackstoload.push(
-      //   { 'name': 'Mixture',
-      //     'customClass': 'mix',
-      //     'solo': true,
-      //     'mute': true,
-      //     'file': [
-      //       'REF', 'test',
-      //       this.selectedTrack,
-      //       'mixture'
-      //     ].join('/') + '.m4a'
-      //   }
-      // )
-
-      this.trackstoload.push(
-        { 'name': this.selectedMethod,
-          'customClass': 'mix',
-          'solo': false,
-          'mute': false,
-          'file': [
-            this.selectedMethod, 'test',
-            this.selectedTrack,
-            this.selectedTarget
-          ].join('/') + '.m4a'
-        }
-      )
-
       return this.trackstoload
     }
   },
   watch: {
-    '$route.params.target': 'updateTarget',
-    '$route.params.track': 'updateTrack',
-    'selectedTarget': 'updateURLforTarget',
-    'selectedTrack': 'updateURLforTrack'
+    '$route.params.track': 'updateTarget',
+    'selectedTrack': 'updateURLforTrack',
+    'selectedTarget': 'updateTarget'
   }
 }
 </script>

@@ -94,9 +94,11 @@ export default {
           }
         }
     },
+    addTrack: function (url) {
+      this.player.addTrack(url)
+    },
     saveState: function (event) {
       this.lastplaybackPosition = this.playbackPosition
-      console.log(this.player.playlist.mutedTracks)
     },
     playpause: function (event) {
       if (this.isPlaying) {

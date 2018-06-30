@@ -40,4 +40,16 @@ Player.prototype.loadTargets = function(trackurls) {
   this.playlist.load(tracksToLoad);
 }
 
+Player.prototype.addTrack = function(track) {
+  this.playlist.load([
+    {
+      "src": 'http://sisec18.s3-website.eu-west-3.amazonaws.com/AUDIO/' + track.file,
+      "name": track.name,
+      "muted": track.mute,
+      "customClass": track.customClass,
+      "soloed": track.solo,
+    }
+  ])
+}
+
 export default Player
