@@ -3,12 +3,19 @@
       <router-link class="navbar-item is-tab" :to="{ path: '/dataset' }">Dataset</router-link>
       <router-link class="navbar-item is-tab" :to="{ path: '/methods' }">Methods</router-link>
       <router-link class="navbar-item is-tab" :to="{ path: '/results' }">Results</router-link>
-      <router-link class="navbar-item is-tab" :to="{ path: '/listen' }">
-        <span class="icon">
-           <i class="fa fa-volume-up"></i>
-        </span>
-        <span>Listen</span>
-      </router-link>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <router-link class="navbar-link is-tab is-boxed" :to="{ path: '/unmix' }">
+          <span class="icon">
+             <i class="fa fa-volume-up"></i>
+          </span>
+          <span>Decompose</span>
+        </router-link>
+        <div class="navbar-dropdown is-boxed">
+          <router-link class="navbar-item" :to="{ path: '/compare' }">
+            <span>Compare Methods</span>
+          </router-link>
+        </div>
+      </div>
       <router-link class="navbar-item is-tab" :to="{ path: '/about' }">About</router-link>
       <div class="navbar-item">
         <a

@@ -17,7 +17,7 @@
               different styles separated into five components: <strong>vocals, accompaniment, drums, bass and other</strong>.
           </h2>
           <br>
-              <router-link class="button is-medium is-primary is-inverted" :to="{ path: '/listen/' + tracks[getRandomNumber()] + '/REF'}">
+              <router-link class="button is-medium is-primary is-inverted" :to="{ path: '/unmix/' + tracks[getRandomNumber()] + '/REF'}">
                   <span class="icon">
                       <i class="fa fa-volume-up"></i>
                   </span>

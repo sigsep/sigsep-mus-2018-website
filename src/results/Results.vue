@@ -7,6 +7,13 @@
       comparison with the true source images using four objective
       performance criteria. For more information about the evaluation metrics see or python based evaluation tool <a href='https://sigsep.github.io/sigsep-mus-eval/museval.metrics.html'>BSSeval v4</a>.
     </div>
+    <div class="notification">
+      The <b>heatmap</b> below shows the result for each audio track and each submitted method.
+      You can use the selections below the heatmap to filter the results by <b>target source</b>, <b>metric</b>.
+      </p></p>
+        You can click on each rectangle to open the multitrack player. For details about the selected method, click on the "Show Details" button below the player.
+    </div>
+
       <span><scale-loader :color="loaderColor" :size="loaderHeight" :loading="isLoading"></scale-loader></span>
       <div id="d3container" v-bind:class="{ 'hide': isLoading }" data-balloon="Click on any square to start playback" data-balloon-pos="top" >
         <svg id='heatmap'width="900" height="300"></svg>
@@ -23,20 +30,22 @@
             <player :urls="tracklist" :title="title"></player>
           </div>
           <div class='column has-text-right'>
-            <router-link class='button is-danger' :to="{ name: 'listen', params: { track: this.tracks[this.$route.params.track_id], method: this.$route.params.method }}">
-              Show details
+            <router-link class='button is-info' :to="{ name: 'unmix', params: { track: this.tracks[this.$route.params.track_id], method: this.$route.params.method }}">
+              Open in Separate Player
+            </router-link>
+            <router-link class='button is-info' :to="{ name: 'compare', params: { track: this.tracks[this.$route.params.track_id], method: this.$route.params.method }}">
+              Compare Methods
             </router-link>
           </div>
       </div>
     </transition>
-    <div class="notification subtitle">
-      The <b>heatmap</b> above shows the result for each audio track and each submitted method.
-      You can use the selections below the heatmap to filter the results by <b>target source</b>, <b>metric</b> or if the track belongs to the <b>test or train data</b>.
-      </p></p>
-        You can click on each rectangle to open the multitrack player. For details about the selected method, click on the "Show Details" button below the player.
-    </div>
     <div class="content">
-      https://github.com/sigsep/sigsep-mus-2018
+
+      <h2>Further Results</h2>
+      <div class="buttons">
+        <a href="https://github.com/sigsep/sigsep-mus-2018" class="button">Download Objective Scores</a>
+        <a href="https://doi.org/10.5281/zenodo.1256003" class="button">Download Audio Submissions</a>
+      </div>
 
     </div>
   </div>
