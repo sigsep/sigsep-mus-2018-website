@@ -33,18 +33,18 @@
          <span class="is-size-7 footerdesc">Organized by</span>
          <span class="logo">
            <a href="http://www.inria.fr">
-             <img src="./assets/logo_INRIA.png" alt="Inria" width="180px">
+             <img src="./assets/logo_INRIA.png" alt="Inria" width="120px">
            </a>
          </span>
          <span class="logo">
            <a href="http://www.lirmm.fr">
-             <img src="./assets/logo_lirmm.svg" alt="LIRMM" width="70px">
+             <img src="./assets/logo_lirmm.svg" alt="LIRMM" width="50px">
            </a>
          </span>
          <span class="logo org">
            <span class="is-size-7 footerdesc">Sponsored by</span>
            <a href="http://www.native-instruments.com">
-             <img src="./assets/logo_ni.svg" alt="LIRMM" width="80px">
+             <img src="./assets/logo_ni.png" alt="Native Instruments">
            </a>
          </span>
        </p>
