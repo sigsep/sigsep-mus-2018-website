@@ -3,7 +3,7 @@
       <div class="container has-text-centered">
         <div class="column is-mobile">
           <h1 class="title is-2">
-            Demixing Professionally Produced Music
+            Unmixing Professionally Produced Music
           </h1>
           <figure class="image">
             <img src="./assets/hero_header.svg" alt="Description">
@@ -17,13 +17,13 @@
               different styles separated into five components: <strong>vocals, accompaniment, drums, bass and other</strong>.
           </h2>
           <br>
-              <router-link class="button is-large is-primary" :to="{ path: '/listen/REF'}">
+              <router-link class="button is-medium is-primary is-inverted" :to="{ path: '/listen/' + tracks[getRandomNumber()] + '/REF'}">
                   <span class="icon">
                       <i class="fa fa-volume-up"></i>
                   </span>
                   <span>Listen to Separation Results</span>
               </router-link>
-              <a class="button is-large is-info" href="https://arxiv.org/abs/1804.06267">
+              <a class="button is-medium is-primary is-inverted" href="https://arxiv.org/abs/1804.06267">
                   <span class="icon">
                       <i class="fa fa-book"></i>
                   </span>
@@ -38,12 +38,18 @@
 </template>
 
 <script>
+import headers from './headers.js'
 
 export default {
+    data: function () {
+      return {
+        tracks: headers.tracks
+      }
+    },
     methods: {
         getRandomNumber: function() {
             var min = 1
-            var max = 100
+            var max = 50
             return Math.floor(Math.random() * (max -min +1)) + min;
         },
     }
