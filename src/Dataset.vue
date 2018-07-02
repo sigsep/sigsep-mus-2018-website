@@ -8,6 +8,9 @@
               <a href="https://doi.org/10.5281/zenodo.1117372"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1117372.svg" alt="DOI"></a>
 
               <img src="./assets/hero.svg" width="512" alt="Description">
+              <a href="https://www.stems-music.com/">
+                <img src="./assets/stems.png" width="410" alt="Description" id='ni_logo'>
+              </a>
 
             </div>
 
@@ -94,5 +97,9 @@ export default {
 <style media="screen">
 .playback:hover {
   color: orange;
+}
+
+#ni_logo {
+  margin-left: 1em;
 }
 </style>
