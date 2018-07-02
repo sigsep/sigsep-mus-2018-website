@@ -15,7 +15,7 @@
     </div>
 
       <span><scale-loader :color="loaderColor" :size="loaderHeight" :loading="isLoading"></scale-loader></span>
-      <div id="d3container" v-bind:class="{ 'hide': isLoading }" data-balloon="Click on any square to start playback" data-balloon-pos="top" >
+      <div id="d3container" v-bind:class="{ 'hide': isLoading }" data-balloon="Click on any square" data-balloon-pos="left" >
         <svg id='heatmap'width="900" height="300"></svg>
         <div id='tracktip'></div>
         <div id='tracklabeltip'></div>
@@ -252,6 +252,13 @@ export default {
   margin-top: 0px;
 }
 
+.tooltip {
+  position: absolute;
+  right: 0;
+  font-size: 1.4em;
+  margin-top: 0.6em;
+  margin-right: 3em;
+}
 .hide {
   opacity: 0;
 }
