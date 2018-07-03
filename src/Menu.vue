@@ -4,13 +4,16 @@
       <router-link class="navbar-item is-tab" :to="{ path: '/methods' }">Methods</router-link>
       <router-link class="navbar-item is-tab" :to="{ path: '/results' }">Results</router-link>
       <div class="navbar-item has-dropdown is-hoverable">
-        <router-link class="navbar-link is-tab is-boxed" :to="{ path: '/unmix' }">
+        <div class="navbar-link is-tab is-boxed">
           <span class="icon">
              <i class="fa fa-volume-up"></i>
           </span>
-          <span>Decompose</span>
-        </router-link>
+          <span>Listen</span>
+        </div>
         <div class="navbar-dropdown is-boxed">
+          <router-link class="navbar-item" :to="{ path: '/unmix' }">
+            <span>Unmix Tracks</span>
+          </router-link>
           <router-link class="navbar-item" :to="{ path: '/compare' }">
             <span>Compare Methods</span>
           </router-link>
