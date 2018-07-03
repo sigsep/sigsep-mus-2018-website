@@ -43,7 +43,7 @@ Player.prototype.loadTargets = function(trackurls) {
 Player.prototype.addTrack = function(track) {
   this.playlist.load([
     {
-      "src": 'http://sisec18.s3-website.eu-west-3.amazonaws.com/AUDIO/' + track.file,
+      "src": 'https://d1q8jl7i9mxhvr.cloudfront.net/AUDIO/' + track.file,
       "name": track.name,
       "muted": track.mute,
       "customClass": track.customClass,
