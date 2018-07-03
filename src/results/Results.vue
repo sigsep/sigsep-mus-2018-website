@@ -111,6 +111,7 @@ export default {
   },
   methods: {
     update: function() {
+      this.selectedMethod = this.$route.params.method
       plot.setRoute(
           this.$route.params.target,
           this.$route.params.metric,
