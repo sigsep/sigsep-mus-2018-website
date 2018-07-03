@@ -40,6 +40,9 @@
       </div>
     </transition>
     <div class="content">
+      <div class="column">
+        <method :short='selectedMethod'></method>
+      </div>
 
       <h2>Further Results</h2>
       <div class="buttons">
@@ -58,6 +61,7 @@
 import * as d3 from 'd3'
 import MapMenu from './Menu.vue'
 import Player from '../player/Player.vue'
+import Method from '../Method.vue'
 import plot from './heatmap.js'
 import headers from '../headers.js'
 import balloon from 'balloon-css/balloon.css';
@@ -67,13 +71,14 @@ import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 
 export default {
   components: {
-    MapMenu, Player, ScaleLoader
+    MapMenu, Player, ScaleLoader, Method
   },
   data: function() {
     return {
       data: [],
       isLoading: true,
       loaderColor: 'orange',
+      selectedMethod: 'MELO',
       loaderHeight: '26px',
       tracks: []
     }
@@ -95,11 +100,14 @@ export default {
     plot.init()
 
     d3.csv("/static/scores.csv").then((data) => {
-      this.data = data
+      this.data = data.filter(function(d) {
+        return (d.track_id != 28);
+      }.bind(this));
       this.update()
     })
 
     this.tracks = headers.tracks
+    this.selectedMethod = 'REF'
   },
   methods: {
     update: function() {
