@@ -56,7 +56,7 @@
         </a>
         <a class="button" @click="clear">
           <span class="icon is-danger">
-            <i class='fa fa-trash'></i>
+            <i class='fa fa-times-circle'></i>
           </span>
         </a>
       </div>

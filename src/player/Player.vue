@@ -95,6 +95,7 @@ export default {
         }
     },
     addTrack: function (url) {
+      this.isLoading = true
       this.player.addTrack(url)
     },
     saveState: function (event) {
