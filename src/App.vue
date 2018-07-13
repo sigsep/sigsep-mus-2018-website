@@ -30,7 +30,7 @@
    <div class="container">
      <div class="content has-text-centered">
        <p>
-         <span class="is-size-7 footerdesc">Organized by</span>
+         <span class="footerdesc">Organized by</span>
          <span class="logo">
            <a href="http://www.inria.fr">
              <img src="./assets/logo_INRIA.png" alt="Inria" width="120px">
@@ -42,9 +42,9 @@
            </a>
          </span>
          <span class="logo org">
-           <span class="is-size-7 footerdesc">Sponsored by</span>
+           <span class="footerdesc">Sponsored by</span>
            <a href="http://www.native-instruments.com">
-             <img src="./assets/logo_ni.png" alt="Native Instruments">
+             <img src="./assets/logo_ni.png" alt="Native Instruments" width="160px">
            </a>
          </span>
        </p>
@@ -80,6 +80,7 @@ export default {
 
 .footerdesc {
   position: absolute;
+  font-size: 9px;
 }
 
 .footer {
