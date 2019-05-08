@@ -21,6 +21,7 @@
     "vue": "^2.5.2",
     "vue-awesome": "^2.3.7",
     "vue-lazyload": "^1.2.6",
+    "vue-markdown": "^2.2.4",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",
     "vue-spinner": "^1.0.3",
